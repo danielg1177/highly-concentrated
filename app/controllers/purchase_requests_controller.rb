@@ -3,8 +3,14 @@ class PurchaseRequestsController < ApplicationController
   before_action :set_purchase_request, only: [:accept]
 
   def index
-    @purchase_request = policy_scope(PurchaseRequest)
+    @purchase_requests = policy_scope(PurchaseRequest)
   end
+
+  def dashboard
+    @purchase_requests = policy_scope(PurchaseRequest)
+    authorize @purchase_requests
+  end
+
 
   def new
     @purchase_request = PurchaseRequest.new
@@ -22,6 +28,7 @@ class PurchaseRequestsController < ApplicationController
   end
 
   def accept
+    authorize @purchase_request
     @purchase_request.status = 'Accepted'
     redirect_to
   end
@@ -29,7 +36,7 @@ class PurchaseRequestsController < ApplicationController
   private
 
   def set_purchase_request
-    @purchase_request = PurchaseRequest.find(params[:id])
+    @purchase_request = PurchaseRequest.find(params[:purchase_request_id])
   end
 
   def set_ganja
