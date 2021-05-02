@@ -9,4 +9,3 @@ Rails.application.routes.draw do
     patch :accept
   end
 end
-end
