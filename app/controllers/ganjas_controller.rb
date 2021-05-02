@@ -12,9 +12,13 @@ class GanjasController < ApplicationController
   end
 
   def flower
+    @ganjas = Ganja.where(variety: "flower")
+    authorize @ganjas
   end
 
   def edible
+    @ganjas = Ganja.where(variety: "edible")
+    authorize @ganjas
   end
 
   def create
