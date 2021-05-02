@@ -2,12 +2,10 @@ class GanjasController < ApplicationController
   before_action :set_ganja, only: %i[show edit]
 
   def index
-    @ganja = Ganja.all
+    @ganja = policy_scope(Ganja)
   end
 
-  def show
-    @ganja = Ganja.new
-  end
+  def show; end
 
   def new
     @ganja = Ganja.new
@@ -16,7 +14,7 @@ class GanjasController < ApplicationController
   def create
     @ganja = Ganja.new(ganja_params)
     if @ganja.save
-      redirect_to ganjas_path
+      redirect_to ganja_path_id
     else
       render :new
     end
