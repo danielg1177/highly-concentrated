@@ -10,7 +10,7 @@ require 'faker'
 puts "Creating flower seeds"
 
 20.times do
-  Ganja.create!(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: "A #{Faker::Cannabis.type} that #{Faker::Cannabis.health_benefit}", unit_price: rand(10..100), variety: "Flower", pickup_local: Faker::Nation.capital_city, user_id: rand(1..4))
+  Ganja.create!(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: "A #{Faker::Cannabis.type} that #{Faker::Cannabis.health_benefit}", unit_price: rand(10..100), variety: "flower", pickup_local: Faker::Nation.capital_city, user_id: rand(1..4))
 end
 
 puts "Finished creating flower seeds"
@@ -19,7 +19,7 @@ puts "Finished creating flower seeds"
 puts "Creating edible seeds"
 
 20.times do
-  Ganja.create!(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: "A #{Faker::Cannabis.type} that #{Faker::Cannabis.health_benefit}", unit_price: rand(10..100), variety: "Edible", pickup_local: Faker::Nation.capital_city, user_id: rand(1..4))
+  Ganja.create!(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: "A #{Faker::Cannabis.type} that #{Faker::Cannabis.health_benefit}", unit_price: rand(10..100), variety: "edible", pickup_local: Faker::Nation.capital_city, user_id: rand(1..4))
 end
 
 puts "Finished creating edible seeds"
