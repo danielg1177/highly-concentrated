@@ -11,6 +11,12 @@ class GanjasController < ApplicationController
     @ganja = Ganja.new
   end
 
+  def flower
+  end
+
+  def edible
+  end
+
   def create
     @ganja = Ganja.new(ganja_params)
     if @ganja.save
