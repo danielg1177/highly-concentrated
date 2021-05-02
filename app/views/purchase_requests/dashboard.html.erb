@@ -11,6 +11,9 @@
         <p>Price: $<%= request.ganja.unit_price %></p>
         <p>User: <%= request.ganja.user.email %>
       </div>
+    <div>
+      <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
+    </div>
   </div>
   <% end %>
 <% end %>

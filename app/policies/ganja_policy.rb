@@ -12,8 +12,4 @@ class GanjaPolicy < ApplicationPolicy
   def edible?
     true
   end
-
-  def dashboard?
-    true if user
-  end
 end

@@ -19,7 +19,7 @@ class PurchaseRequestsController < ApplicationController
   def create
     @purchase_request = PurchaseRequest.new(purchase_request_params)
     @purchase_request.ganja = @ganja
-    purchase_request.status = 'Pending'
+    purchase_request.status = 'pending'
     if @purchase_request.save
       redirect_to ganja_path(@ganja)
     else
@@ -29,8 +29,9 @@ class PurchaseRequestsController < ApplicationController
 
   def accept
     authorize @purchase_request
-    @purchase_request.status = 'Accepted'
-    redirect_to
+    @purchase_request.status = 'accepted'
+    @purchase_request.save
+    redirect_to dashboard_path
   end
 
   private
