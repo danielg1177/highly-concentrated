@@ -1,6 +1,6 @@
 class PurchaseRequestsController < ApplicationController
   before_action :set_ganja, only: %i[new create]
-  before_action :set_purchase_request, only: [:accept]
+  before_action :set_purchase_request, only: [:accept, :decline]
 
   def index
     @purchase_requests = policy_scope(PurchaseRequest)
@@ -30,6 +30,13 @@ class PurchaseRequestsController < ApplicationController
   def accept
     authorize @purchase_request
     @purchase_request.status = 'accepted'
+    @purchase_request.save
+    redirect_to dashboard_path
+  end
+
+  def decline
+    authorize @purchase_request
+    @purchase_request.status = 'declined'
     @purchase_request.save
     redirect_to dashboard_path
   end

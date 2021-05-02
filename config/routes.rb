@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
   resources :purchase_requests do
     patch :accept
+    patch :decline
   end
 end

@@ -13,6 +13,7 @@
       </div>
     <div>
       <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
+      <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
     </div>
   </div>
   <% end %>
