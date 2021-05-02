@@ -4,4 +4,12 @@ class GanjaPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def flower?
+    true
+  end
+
+  def edible?
+    true
+  end
 end
