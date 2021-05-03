@@ -1,23 +1,27 @@
 
-
+<div class="product-cards">
 <% if @ganjas %>
   <h2>My Available Ganja</h2>
   <% @ganjas.each do |ganja| %>
     <div class="product-card">
-      <div class="product-details">
-        <p>Name: <%= ganja.name %></p>
-        <p>Strain: <%= ganja.strain %></p>
-        <p>Price: $<%= ganja.unit_price %></p>
-        <p>Pickup Location: <%= ganja.pickup_local %>
+      <div>
+        <% if ganja.photo.attached? %>
+          <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+        <% end %>
       </div>
-    <div>
-      <% if ganja.photo.attached? %>
-        <%= cl_image_tag(ganja.photo.key, width: 70, height: 60, crop: :fill) %>
-      <% end %>
-      <%= link_to "Edit",  edit_ganja_path(ganja), class: 'text-warning' %>
+      <div class="product-details">
+        <div class="product-details1">
+          <p>Name: <%= ganja.name %></p>
+          <p>Strain: <%= ganja.strain %></p>
+        </div>
+        <div class="product-details2">
+          <p>Price: $<%= ganja.unit_price %></p>
+          <p>Pickup Location: <%= ganja.pickup_local %></p>
+          <%= link_to "Edit", edit_ganja_path(ganja), class: 'text-warning' %>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 <% end %>
 
 <div class="seller-options">
@@ -31,7 +35,7 @@
         <p>Name: <%= request.ganja.name %></p>
         <p>Strain: <%= request.ganja.strain %></p>
         <p>Price: $<%= request.ganja.unit_price %></p>
-        <p>Pickup Location: <%= request.ganja.pickup_local %>
+        <p>Pickup Location: <%= request.ganja.pickup_local %></p>
       </div>
     <div>
       <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
@@ -50,7 +54,7 @@
         <p>Name: <%= request.ganja.name %></p>
         <p>Strain: <%= request.ganja.strain %></p>
         <p>Price: $<%= request.ganja.unit_price %></p>
-        <p>Pickup Location: <%= request.ganja.pickup_local %>
+        <p>Pickup Location: <%= request.ganja.pickup_local %></p>
       </div>
     <div>
     </div>
@@ -67,11 +71,12 @@
         <p>Name: <%= request.ganja.name %></p>
         <p>Strain: <%= request.ganja.strain %></p>
         <p>Price: $<%= request.ganja.unit_price %></p>
-        <p>Pickup Location: <%= request.ganja.pickup_local %>
+        <p>Pickup Location: <%= request.ganja.pickup_local %></p>
       </div>
     <div>
     </div>
   </div>
   <% end %>
 <% end %>
+</div>
 </div>
