@@ -6,7 +6,7 @@
     <div class="product-card">
       <div class="product-photo">
         <% if ganja.photo.attached? %>
-          <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
       </div>
       <div class="product-details">
@@ -34,7 +34,7 @@
     <div class="product-card">
       <div class="product-photo">
         <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
       </div>
       <div class="product-details">
@@ -62,7 +62,7 @@
     <div class="product-card">
       <div class="product-photo">
         <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
       </div>
       <div class="product-details">
@@ -90,7 +90,7 @@
     <div class="product-card">
       <div class="product-photo">
         <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
       </div>
       <div class="product-details">
