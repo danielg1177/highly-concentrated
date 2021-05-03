@@ -1,6 +1,6 @@
 <div class="product-cards">
 <% if @ganjas %>
-  <h2>My Available Ganja</h2>
+  <h2 class="header-text">My Available Ganja</h2>
   <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
   <% @ganjas.each do |ganja| %>
     <div class="product-card">
