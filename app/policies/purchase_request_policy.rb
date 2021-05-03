@@ -9,6 +9,10 @@ class PurchaseRequestPolicy < ApplicationPolicy
     true if user
   end
 
+  def dashboard?
+    true if user
+  end
+
   def accept?
     true
   end

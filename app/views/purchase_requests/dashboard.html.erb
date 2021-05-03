@@ -1,0 +1,53 @@
+<div class="dashboard">
+<% if @purchase_requests.any? { |request| request.status == "pending" && request.user == current_user } %>
+  <h2>My Requests</h2>
+<% end %>
+<% @purchase_requests.each do |request| %>
+  <% if request.status == "pending" && request.user == current_user %>
+    <div class="product-card">
+      <div>
+        <p>Name: <%= request.ganja.name %></p>
+        <p>Strain: <%= request.ganja.strain %></p>
+        <p>Price: $<%= request.ganja.unit_price %></p>
+        <p>User: <%= request.ganja.user.email %>
+      </div>
+    <div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+<% if @purchase_requests.any? { |request| request.status == "accepted" && request.user == current_user } %>
+  <h2>Requests Accepted</h2>
+<% end %>
+<% @purchase_requests.each do |request| %>
+  <% if request.status == "accepted" && request.user == current_user %>
+    <div class="product-card">
+      <div>
+        <p>Name: <%= request.ganja.name %></p>
+        <p>Strain: <%= request.ganja.strain %></p>
+        <p>Price: $<%= request.ganja.unit_price %></p>
+        <p>User: <%= request.ganja.user.email %>
+      </div>
+    <div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+<% if @purchase_requests.any? { |request| request.status == "declined" && request.user == current_user } %>
+  <h2>Request Declined</h2>
+<% end %>
+<% @purchase_requests.each do |request| %>
+  <% if request.status == "declined" && request.user == current_user %>
+    <div class="product-card">
+      <div>
+        <p>Name: <%= request.ganja.name %></p>
+        <p>Strain: <%= request.ganja.strain %></p>
+        <p>Price: $<%= request.ganja.unit_price %></p>
+        <p>User: <%= request.ganja.user.email %>
+      </div>
+    <div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+</div>
