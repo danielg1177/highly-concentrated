@@ -7,17 +7,18 @@
     <div class="product-card">
       <div class="product-photo">
         <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
       </div>
       <div class="product-details">
         <div class="product-details1">
           <p>Name: <%= request.ganja.name %></p>
           <p>Strain: <%= request.ganja.strain %></p>
+          <p>Type: <%= request.ganja.variety %></p>
         </div>
         <div class="product-details2">
           <p>Price: $<%= request.ganja.unit_price %></p>
-          <p>User: <%= request.ganja.user.email %> </p>
+          <p><%= request.ganja.user.email %> </p>
         </div>
       </div>
     <div>
@@ -33,17 +34,18 @@
     <div class="product-card">
       <div class="product-photo">
         <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
       </div>
       <div class="product-details">
         <div class="product-details1">
           <p>Name: <%= request.ganja.name %></p>
           <p>Strain: <%= request.ganja.strain %></p>
+          <p>Type: <%= request.ganja.variety %></p>
         </div>
         <div class="product-details2">
           <p>Price: $<%= request.ganja.unit_price %></p>
-          <p>User: <%= request.ganja.user.email %> </p>
+          <p><%= request.ganja.user.email %> </p>
         </div>
       </div>
     </div>
@@ -57,17 +59,18 @@
     <div class="product-card">
       <div class="product-photo">
         <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
       </div>
       <div class="product-details">
         <div class="product-details1">
           <p>Name: <%= request.ganja.name %></p>
           <p>Strain: <%= request.ganja.strain %></p>
+          <p>Type: <%= request.ganja.variety %></p>s
         </div>
         <div class="product-details2">
           <p>Price: $<%= request.ganja.unit_price %></p>
-          <p>User: <%= request.ganja.user.email %></p>
+          <p><%= request.ganja.user.email %></p>
         </div>
       </div>
     <div>
