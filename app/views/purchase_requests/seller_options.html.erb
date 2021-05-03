@@ -3,15 +3,17 @@
   <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
   <% @ganjas.each do |ganja| %>
     <div class="product-card">
-      <div>
+      <div class="product-details">
         <p>Name: <%= ganja.name %></p>
         <p>Strain: <%= ganja.strain %></p>
         <p>Price: $<%= ganja.unit_price %></p>
         <p>Pickup Location: <%= ganja.pickup_local %>
       </div>
-      <div>
-        <%= link_to "Edit",  edit_ganja_path(ganja), class: 'text-warning' %>
-      </div>
+    <div>
+      <% if ganja.photo.attached? %>
+        <%= cl_image_tag(ganja.photo.key, width: 70, height: 60, crop: :fill) %>
+      <% end %>
+      <%= link_to "Edit",  edit_ganja_path(ganja), class: 'text-warning' %>
     </div>
   <% end %>
 <% end %>
