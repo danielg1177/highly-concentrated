@@ -263,7 +263,11 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+<<<<<<< HEAD
+  cloudinary (~> 1.16.0)
+=======
   cloudinary
+>>>>>>> 65cae11fb721253bc9e72bef06f141a6ee201aca
   devise
   dotenv-rails
   faker

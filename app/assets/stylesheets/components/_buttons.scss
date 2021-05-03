@@ -1,0 +1,99 @@
+.text-center {
+  text-align: center;
+}
+
+.btn-flower {
+  display: inline-block;
+  border: none;
+  color: #fff;
+  text-decoration: none;
+  background-color: #9EBA91;
+  padding: 15px 45px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 3px;
+  border-radius: 2px;
+  text-align: center;
+  position: relative;
+  outline: none;
+  transition: background-color .1s ease;
+  cursor: pointer;
+  &::after {
+    transition: background-color .2s ease;
+    position: absolute;
+    // content: ''
+    height: 4px;
+    bottom: 0;
+    width: 100%;
+    background-color: darken(#9EBA91, 50%);
+    opacity: .18;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    left: 0;
+  }
+  &:focus, &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+  &:hover {
+    background-color: lighten(#9EBA91, 5%);
+    &::after {
+      opacity: .22;
+    }
+  }
+  &:active {
+    background-color: darken(#9EBA91, 5%);
+    &::after {
+      opacity: .32;
+    }
+  }
+}
+
+.btn-edible {
+    display: inline-block;
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    background-color: #A7604A;
+    padding: 15px 45px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 3px;
+    border-radius: 2px;
+    text-align: center;
+    position: relative;
+    outline: none;
+    transition: background-color .1s ease;
+    cursor: pointer;
+    &::after {
+    transition: background-color .2s ease;
+    position: absolute;
+    // content: ''
+    height: 4px;
+    bottom: 0;
+    width: 100%;
+    background-color: darken(#A7604A, 50%);
+    opacity: .18;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    left: 0;
+  }
+  &:focus, &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+  &:hover {
+    background-color: lighten(#A7604A, 5%);
+    &::after {
+      opacity: .22;
+    }
+  }
+  &:active {
+    background-color: darken(#A7604A, 5%);
+    &::after {
+      opacity: .32;
+    }
+  }
+}

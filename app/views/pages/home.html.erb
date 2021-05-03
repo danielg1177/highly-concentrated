@@ -1,4 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>The Highly Concentrated</h1>
+<p>Can’t focus? <br>
+ Need to set your mind right? <br>
+Just reach out and get Highly Concentrated.</p>
 
-<%= link_to "Flower", ganja_edible_path %>
+<div class="container mt-3 text-center">
+  <div>
+    <%= link_to 'Flower', ganja_flower_path, class: "btn-flower" %>
+  </div>
+  <br />
+  <div>
+    <%= link_to 'Edibles', ganja_edible_path, class: "btn-edible" %>
+  </div>
+</div>
