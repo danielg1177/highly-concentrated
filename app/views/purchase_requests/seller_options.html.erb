@@ -1,4 +1,4 @@
-<div class="dashboard">
+<div class="seller-options">
 <% if @purchase_requests.any? { |request| request.status == "pending" && request.ganja.user == current_user } %>
   <h2>Pending</h2>
 <% end %>
