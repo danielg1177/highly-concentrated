@@ -10,6 +10,7 @@ class GanjasController < ApplicationController
 
   def new
     @ganja = Ganja.new
+    authorize @ganja
   end
 
   def flower
@@ -23,9 +24,10 @@ class GanjasController < ApplicationController
   end
 
   def create
-    @ganja = Ganja.new(ganja_params)
+    @ganja = Ganja.new(ganja_params.merge(user: current_user))
+    authorize @ganja
     if @ganja.save
-      redirect_to dashboard_path
+      redirect_to seller_options_path
     else
       render :new
     end
@@ -46,7 +48,8 @@ class GanjasController < ApplicationController
   def ganja_params
     params.require(:ganja).permit(:name, :strain,
                                   :description, :unit_price,
-                                  :variety, :pickup_local, :user_id, :photo)
+                                  :variety, :pickup_local,
+                                  :user_id, :photo)
   end
 
   def set_ganja
