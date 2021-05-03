@@ -25,7 +25,7 @@ class GanjasController < ApplicationController
   def create
     @ganja = Ganja.new(ganja_params)
     if @ganja.save
-      redirect_to ganja_path_id
+      redirect_to dashboard_path
     else
       render :new
     end
