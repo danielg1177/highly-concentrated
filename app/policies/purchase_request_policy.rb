@@ -20,4 +20,12 @@ class PurchaseRequestPolicy < ApplicationPolicy
   def decline?
     true
   end
+
+  def new?
+    true if user
+  end
+
+  def create?
+    new?
+  end
 end
