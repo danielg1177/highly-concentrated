@@ -1,8 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div>
-    <% if user_signed_in? %>
-      <p class="nav-item"><%= current_user.email %></p>
-    <% end %>
+    <p class="nav-item"><%= current_user.email %></p>
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
