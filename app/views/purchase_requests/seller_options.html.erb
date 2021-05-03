@@ -30,7 +30,9 @@
 <% end %>
 <% if @ganjas %>
   <h2 class="header-text">My Available Ganja</h2>
-  <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
+  <div class="create">
+    <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
+  </div>
   <% @ganjas.each do |ganja| %>
     <div class="product-card">
       <div class="product-photo">
