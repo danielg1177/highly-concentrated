@@ -1,5 +1,6 @@
 class GanjasController < ApplicationController
   before_action :set_ganja, only: %i[show edit]
+  skip_before_action :authenticate_user!, only: [:edible, :flower]
 
   def index
     @ganja = policy_scope(Ganja)
@@ -42,7 +43,7 @@ class GanjasController < ApplicationController
   def ganja_params
     params.require(:ganja).permit(:name, :strain,
                                   :description, :unit_price,
-                                  :variety, :pickup_local, :user_id)
+                                  :variety, :pickup_local, :user_id, :photo)
   end
 
   def set_ganja

@@ -1,10 +1,21 @@
 class PurchaseRequestsController < ApplicationController
   before_action :set_ganja, only: %i[new create]
-  before_action :set_purchase_request, only: [:accept]
+  before_action :set_purchase_request, only: [:accept, :decline]
 
   def index
-    @purchase_request = policy_scope(PurchaseRequest)
+    @purchase_requests = policy_scope(PurchaseRequest)
   end
+
+  def seller_options
+    @purchase_requests = policy_scope(PurchaseRequest)
+    authorize @purchase_requests
+  end
+
+  def dashboard
+    @purchase_requests = policy_scope(PurchaseRequest)
+    authorize @purchase_requests
+  end
+
 
   def new
     @purchase_request = PurchaseRequest.new
@@ -13,7 +24,7 @@ class PurchaseRequestsController < ApplicationController
   def create
     @purchase_request = PurchaseRequest.new(purchase_request_params)
     @purchase_request.ganja = @ganja
-    purchase_request.status = 'Pending'
+    purchase_request.status = 'pending'
     if @purchase_request.save
       redirect_to ganja_path(@ganja)
     else
@@ -22,14 +33,23 @@ class PurchaseRequestsController < ApplicationController
   end
 
   def accept
-    @purchase_request.status = 'Accepted'
-    redirect_to
+    authorize @purchase_request
+    @purchase_request.status = 'accepted'
+    @purchase_request.save
+    redirect_to dashboard_path
+  end
+
+  def decline
+    authorize @purchase_request
+    @purchase_request.status = 'declined'
+    @purchase_request.save
+    redirect_to dashboard_path
   end
 
   private
 
   def set_purchase_request
-    @purchase_request = PurchaseRequest.find(params[:id])
+    @purchase_request = PurchaseRequest.find(params[:purchase_request_id])
   end
 
   def set_ganja

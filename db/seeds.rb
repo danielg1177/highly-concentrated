@@ -23,3 +23,16 @@ puts "Creating edible seeds"
 end
 
 puts "Finished creating edible seeds"
+
+10.times do
+  PurchaseRequest.create!(user_id: rand(1..4), ganja_id: rand(1..40), status: 'pending', pickup_time: '12:00')
+end
+
+10.times do
+  PurchaseRequest.create!(user_id: rand(1..4), ganja_id: rand(1..40), status: 'accepted', pickup_time: '12:00')
+end
+
+10.times do
+  PurchaseRequest.create!(user_id: rand(1..4), ganja_id: rand(1..40), status: 'declined', pickup_time: '12:00')
+end
+
