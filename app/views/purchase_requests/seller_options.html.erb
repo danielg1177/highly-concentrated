@@ -15,9 +15,9 @@
           <p>Strain: <%= ganja.strain %></p>
         </div>
         <div class="product-details2">
+          <%= link_to "Edit", edit_ganja_path(ganja), class: 'text-warning' %>
           <p>Price: $<%= ganja.unit_price %></p>
           <p>Pickup Location: <%= ganja.pickup_local %></p>
-          <%= link_to "Edit", edit_ganja_path(ganja), class: 'text-warning' %>
         </div>
       </div>
     </div>
@@ -32,14 +32,21 @@
   <% if request.status == "pending" && request.ganja.user == current_user %>
     <div class="product-card">
       <div>
-        <p>Name: <%= request.ganja.name %></p>
-        <p>Strain: <%= request.ganja.strain %></p>
-        <p>Price: $<%= request.ganja.unit_price %></p>
-        <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+        <% if request.ganja.photo.attached? %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+        <% end %>
       </div>
-    <div>
-      <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
-      <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
+      <div class="product-details">
+        <div class="product-details1">
+          <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
+          <p>Name: <%= request.ganja.name %></p>
+          <p>Strain: <%= request.ganja.strain %></p>
+        </div>
+        <div class="product-details2">
+          <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
+          <p>Price: $<%= request.ganja.unit_price %></p>
+          <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+      </div>
     </div>
   </div>
   <% end %>
@@ -51,10 +58,19 @@
   <% if request.status == "accepted" && request.ganja.user == current_user %>
     <div class="product-card">
       <div>
-        <p>Name: <%= request.ganja.name %></p>
-        <p>Strain: <%= request.ganja.strain %></p>
-        <p>Price: $<%= request.ganja.unit_price %></p>
-        <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+        <% if request.ganja.photo.attached? %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+        <% end %>
+        <div class="product-details">
+          <div class="product-details1">
+            <p>Name: <%= request.ganja.name %></p>
+            <p>Strain: <%= request.ganja.strain %></p>
+          </div>
+          <div class="product-details2">
+            <p>Price: $<%= request.ganja.unit_price %></p>
+            <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+          </div>
+        </div>
       </div>
     <div>
     </div>
@@ -68,10 +84,19 @@
   <% if request.status == "declined" && request.ganja.user == current_user %>
     <div class="product-card">
       <div>
-        <p>Name: <%= request.ganja.name %></p>
-        <p>Strain: <%= request.ganja.strain %></p>
-        <p>Price: $<%= request.ganja.unit_price %></p>
-        <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+        <% if request.ganja.photo.attached? %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+        <% end %>
+        <div class="product-details">
+          <div class="product-details1">
+            <p>Name: <%= request.ganja.name %></p>
+            <p>Strain: <%= request.ganja.strain %></p>
+          </div>
+          <div class="product-details2">
+            <p>Price: $<%= request.ganja.unit_price %></p>
+            <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+          </div>
+        </div>
       </div>
     <div>
     </div>
