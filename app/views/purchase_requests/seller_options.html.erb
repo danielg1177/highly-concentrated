@@ -1,7 +1,6 @@
-
-
 <% if @ganjas %>
   <h2>My Available Ganja</h2>
+  <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
   <% @ganjas.each do |ganja| %>
     <div class="product-card">
       <div class="product-details">
@@ -16,8 +15,7 @@
       <% end %>
       <%= link_to "Edit",  edit_ganja_path(ganja), class: 'text-warning' %>
     </div>
-  </div>
-<% end %>
+  <% end %>
 <% end %>
 
 <div class="seller-options">
