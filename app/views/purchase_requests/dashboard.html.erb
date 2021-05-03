@@ -1,6 +1,6 @@
 <div class="product-cards">
 <% if @purchase_requests.any? { |request| request.status == "pending" && request.user == current_user } %>
-  <h2>My Pending Requests</h2>
+  <h2 class="header-text">My Pending Requests</h2>
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "pending" && request.user == current_user %>
@@ -59,7 +59,7 @@
     <div class="product-card">
       <div class="product-photo">
         <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 380, height: 270) %>
         <% end %>
       </div>
       <div class="product-details">
