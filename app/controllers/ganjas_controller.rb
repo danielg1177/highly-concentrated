@@ -42,7 +42,7 @@ class GanjasController < ApplicationController
   def ganja_params
     params.require(:ganja).permit(:name, :strain,
                                   :description, :unit_price,
-                                  :variety, :pickup_local, :user_id)
+                                  :variety, :pickup_local, :user_id, :photo)
   end
 
   def set_ganja
