@@ -10,12 +10,21 @@ class GanjasController < ApplicationController
         lng: ganja.longitude
       }
     end
+
+  before_action :set_ganja, only: %i[show edit update]
+  skip_before_action :authenticate_user!, only: %i[edible flower]
+
+  def index
+    @ganja = policy_scope(Ganja)
   end
 
   def show; end
 
   def new
     @ganja = Ganja.new
+
+    authorize @ganja
+
   end
 
   def flower
@@ -32,6 +41,11 @@ class GanjasController < ApplicationController
     @ganja = Ganja.new(ganja_params)
     if @ganja.save
       redirect_to ganja_path_id
+
+    @ganja = Ganja.new(ganja_params.merge(user: current_user))
+    authorize @ganja
+    if @ganja.save
+      redirect_to seller_options_path
     else
       render :new
     end
@@ -42,6 +56,15 @@ class GanjasController < ApplicationController
   def update
     @ganja.update(ganja_params)
     redirect_to ganja_path(@ganja)
+
+  def edit
+    authorize @ganja
+  end
+
+  def update
+    @ganja.update(ganja_params)
+    authorize @ganja
+    redirect_to seller_options_path
   end
 
   private
@@ -50,6 +73,10 @@ class GanjasController < ApplicationController
     params.require(:ganja).permit(:name, :strain,
                                   :description, :unit_price,
                                   :variety, :pickup_local, :user_id)
+
+                                  :variety, :pickup_local,
+                                  :user_id, :photo)
+
   end
 
   def set_ganja

@@ -10,9 +10,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= favicon_link_tag asset_path('THC_favicon.png') %>
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
     <%= yield %>
   </body>
 </html>

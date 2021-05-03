@@ -1,0 +1,10 @@
+<%= simple_form_for(@ganja) do |ganja| %>
+  <%= ganja.input :name %>
+  <%= ganja.input :strain %>
+  <%= ganja.input :description %>
+  <%= ganja.input :unit_price %>
+  <%= ganja.input :variety %>
+  <%= ganja.input :pickup_local %>
+  <%= ganja.input :photo, as: :file %>
+  <%= ganja.submit %>
+<% end %>
