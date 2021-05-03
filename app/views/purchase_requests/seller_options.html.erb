@@ -4,7 +4,7 @@
   <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
   <% @ganjas.each do |ganja| %>
     <div class="product-card">
-      <div>
+      <div class="product-photo">
         <% if ganja.photo.attached? %>
           <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 400, height: 300) %>
         <% end %>
