@@ -1,0 +1,55 @@
+<div class="seller-options">
+<% if @purchase_requests.any? { |request| request.status == "pending" && request.ganja.user == current_user } %>
+  <h2>Pending</h2>
+<% end %>
+<% @purchase_requests.each do |request| %>
+  <% if request.status == "pending" && request.ganja.user == current_user %>
+    <div class="product-card">
+      <div>
+        <p>Name: <%= request.ganja.name %></p>
+        <p>Strain: <%= request.ganja.strain %></p>
+        <p>Price: $<%= request.ganja.unit_price %></p>
+        <p>User: <%= request.ganja.user.email %>
+      </div>
+    <div>
+      <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
+      <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+<% if @purchase_requests.any? { |request| request.status == "accepted" && request.ganja.user == current_user } %>
+  <h2>Accepted</h2>
+<% end %>
+<% @purchase_requests.each do |request| %>
+  <% if request.status == "accepted" && request.ganja.user == current_user %>
+    <div class="product-card">
+      <div>
+        <p>Name: <%= request.ganja.name %></p>
+        <p>Strain: <%= request.ganja.strain %></p>
+        <p>Price: $<%= request.ganja.unit_price %></p>
+        <p>User: <%= request.ganja.user.email %>
+      </div>
+    <div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+<% if @purchase_requests.any? { |request| request.status == "declined" && request.ganja.user == current_user } %>
+  <h2>Declined</h2>
+<% end %>
+<% @purchase_requests.each do |request| %>
+  <% if request.status == "declined" && request.ganja.user == current_user %>
+    <div class="product-card">
+      <div>
+        <p>Name: <%= request.ganja.name %></p>
+        <p>Strain: <%= request.ganja.strain %></p>
+        <p>Price: $<%= request.ganja.unit_price %></p>
+        <p>User: <%= request.ganja.user.email %>
+      </div>
+    <div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+</div>

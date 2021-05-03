@@ -10,13 +10,18 @@
       <li class="nav-item active">
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
       <% if user_signed_in? %>
-        <%= link_to "Sign Out", destroy_user_session_path(current_user), method: :delete, class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to "Sign Out", destroy_user_session_path(current_user), method: :delete, class: "nav-link" %>
+        </li>
+        <li class="nav-items">
+          <%= link_to "Seller Options", seller_options_path, class: "nav-link" %>
+        </li>
       <% else %>
-        <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+        <li class="nav-items">
+          <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+        </li>
       <% end %>
-      </li>
       <li class="nav-item dropdown">
         <%= image_tag "https://images.unsplash.com/photo-1589140915708-20ff586fe767?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d2VlZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: '40px', width: '40px' %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
