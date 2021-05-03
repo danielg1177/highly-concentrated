@@ -8,7 +8,7 @@
     </div>
     <div>
       <% if ganja.photo.attached? %>
-        <%= cl_image_tag(ganja.photo.id, width: 400, height: 300, crop: :fill) %>
+        <%= cl_image_tag(ganja.photo.key, width: 400, height: 300, crop: :fill) %>
       <% end %>
       <%= link_to "Request", new_ganja_purchase_request_path(ganja) %>
     </div>
