@@ -1,5 +1,5 @@
 class GanjasController < ApplicationController
-  before_action :set_ganja, only: %i[show edit]
+  before_action :set_ganja, only: %i[show edit update]
   skip_before_action :authenticate_user!, only: %i[edible flower]
 
   def index
@@ -24,7 +24,7 @@ class GanjasController < ApplicationController
   end
 
   def create
-    @ganja = Ganja.new(ganja_params)
+    @ganja = Ganja.new(ganja_params.merge(user: current_user))
     authorize @ganja
     if @ganja.save
       redirect_to seller_options_path
@@ -48,7 +48,8 @@ class GanjasController < ApplicationController
   def ganja_params
     params.require(:ganja).permit(:name, :strain,
                                   :description, :unit_price,
-                                  :variety, :pickup_local, :user_id, :photo)
+                                  :variety, :pickup_local,
+                                  :user_id, :photo)
   end
 
   def set_ganja
