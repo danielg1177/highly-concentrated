@@ -1,12 +1,43 @@
 <div class="product-cards">
+<div class="seller-options">
+<% if @purchase_requests.any? { |request| request.status == "pending" && request.ganja.user == current_user } %>
+  <h2>Pending Your Approval</h2>
+<% end %>
+<% @purchase_requests.each do |request| %>
+  <% if request.status == "pending" && request.ganja.user == current_user %>
+    <div class="product-card">
+      <div class="product-photo">
+        <% if request.ganja.photo.attached? %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
+        <% end %>
+      </div>
+      <div class="product-details">
+        <div class="product-details1">
+          <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
+          <p>Name: <%= request.ganja.name %></p>
+          <p>Strain: <%= request.ganja.strain %></p>
+          <p>Type: <%= request.ganja.variety %></p>
+        </div>
+        <div class="product-details2">
+          <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
+          <p>Price: $<%= request.ganja.unit_price %></p>
+          <p>Pickup: <%= request.ganja.pickup_local %></p>
+          <p>From: <%= request.user.email %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
 <% if @ganjas %>
   <h2>My Available Ganja</h2>
-  <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
+  <div class="create">
+    <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
+  </div>
   <% @ganjas.each do |ganja| %>
     <div class="product-card">
       <div class="product-photo">
         <% if ganja.photo.attached? %>
-          <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
       </div>
       <div class="product-details">
@@ -24,55 +55,27 @@
     </div>
   <% end %>
 <% end %>
-
-<div class="seller-options">
-<% if @purchase_requests.any? { |request| request.status == "pending" && request.ganja.user == current_user } %>
-  <h2>Pending Your Approval</h2>
-<% end %>
-<% @purchase_requests.each do |request| %>
-  <% if request.status == "pending" && request.ganja.user == current_user %>
-    <div class="product-card">
-      <div>
-        <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
-        <% end %>
-      </div>
-      <div class="product-details">
-        <div class="product-details1">
-          <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
-          <p>Name: <%= request.ganja.name %></p>
-          <p>Strain: <%= request.ganja.strain %></p>
-          <p>Type: <%= request.ganja.variety %></p>
-        </div>
-        <div class="product-details2">
-          <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
-          <p>Price: $<%= request.ganja.unit_price %></p>
-          <p>Pickup: <%= request.ganja.pickup_local %></p>
-      </div>
-    </div>
-  </div>
-  <% end %>
-<% end %>
 <% if @purchase_requests.any? { |request| request.status == "accepted" && request.ganja.user == current_user } %>
   <h2>Deals You've Accepted</h2>
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "accepted" && request.ganja.user == current_user %>
     <div class="product-card">
-      <div>
+      <div class="product-photo">
         <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
-        <div class="product-details">
-          <div class="product-details1">
-            <p>Name: <%= request.ganja.name %></p>
-            <p>Strain: <%= request.ganja.strain %></p>
-            <p>Type: <%= request.ganja.variety %></p>
-          </div>
-          <div class="product-details2">
-            <p>Price: $<%= request.ganja.unit_price %></p>
-            <p>Pickup: <%= request.ganja.pickup_local %></p>
-          </div>
+      </div>
+      <div class="product-details">
+        <div class="product-details1">
+          <p>Name: <%= request.ganja.name %></p>
+          <p>Strain: <%= request.ganja.strain %></p>
+          <p>Type: <%= request.ganja.variety %></p>
+        </div>
+        <div class="product-details2">
+          <p>Price: $<%= request.ganja.unit_price %></p>
+          <p>Pickup: <%= request.ganja.pickup_local %></p>
+          <p>From: <%= request.user.email %></p>
         </div>
       </div>
     <div>
@@ -86,24 +89,23 @@
 <% @purchase_requests.each do |request| %>
   <% if request.status == "declined" && request.ganja.user == current_user %>
     <div class="product-card">
-      <div>
+      <div class="product-photo">
         <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 300) %>
+          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 400, height: 270) %>
         <% end %>
-        <div class="product-details">
-          <div class="product-details1">
-            <p>Name: <%= request.ganja.name %></p>
-            <p>Strain: <%= request.ganja.strain %></p>
-          </div>
-          <div class="product-details2">
-            <p>Price: $<%= request.ganja.unit_price %></p>
-            <p>Pickup: <%= request.ganja.pickup_local %></p>
-            <p>Type: <%= request.ganja.variety %></p>
-          </div>
+      </div>
+      <div class="product-details">
+        <div class="product-details1">
+          <p>Name: <%= request.ganja.name %></p>
+          <p>Strain: <%= request.ganja.strain %></p>
+          <p>Type: <%= request.ganja.variety %></p>
+        </div>
+        <div class="product-details2">
+          <p>Price: $<%= request.ganja.unit_price %></p>
+          <p>Pickup: <%= request.ganja.pickup_local %></p>
+          <p>From: <%= request.user.email %></p>
         </div>
       </div>
-    <div>
-    </div>
   </div>
   <% end %>
 <% end %>
