@@ -3,7 +3,13 @@ class GanjasController < ApplicationController
   before_action :set_ganja, only: %i[show edit]
 
   def index
-    @ganja = policy_scope(Ganja)
+    @ganjas = policy_scope(Ganja)
+    @markers = @ganjas.geocoded.map do |ganja|
+      {
+        lat: ganja.latitude,
+        lng: ganja.longitude
+      }
+    end
   end
 
   def show; end
