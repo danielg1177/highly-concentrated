@@ -1,21 +1,24 @@
-<div class="form">
-  <ul>
-    <% @ganjas.each do |ganja| %>
-      <li>
-        <div class="ganja">
-          <h3><%= ganja.name %></h3>
-          <p><%= ganja.strain %></p>
-          <p><%= ganja.unit_price %> <%= ganja.variety %></p>
-        </div>
-      </li>
-      <%= link_to "Create",  new_ganja_path(ganja), class: 'text-primary' %>
-      <%= link_to "Edit",  edit_ganja_path(ganja), class: 'text-warning' %>
-    <% end %>
-</div>
+<% if @ganjas %>
+  <h2>My Available Ganja</h2>
+  <% @ganjas.each do |ganja| %>
+    <div class="product-card">
+      <div>
+        <p>Name: <%= ganja.name %></p>
+        <p>Strain: <%= ganja.strain %></p>
+        <p>Price: $<%= ganja.unit_price %></p>
+        <p>Pickup Location: <%= ganja.pickup_local %>
+      </div>
+      <div>
+        <%= link_to "Edit",  edit_ganja_path(ganja), class: 'text-warning' %>
+        <%= link_to "Create",  new_ganja_path(ganja), class: 'text-primary' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 <div class="seller-options">
 <% if @purchase_requests.any? { |request| request.status == "pending" && request.ganja.user == current_user } %>
-  <h2>Pending</h2>
+  <h2>Pending Your Approval</h2>
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "pending" && request.ganja.user == current_user %>
@@ -24,7 +27,7 @@
         <p>Name: <%= request.ganja.name %></p>
         <p>Strain: <%= request.ganja.strain %></p>
         <p>Price: $<%= request.ganja.unit_price %></p>
-        <p>User: <%= request.ganja.user.email %>
+        <p>Pickup Location: <%= request.ganja.pickup_local %>
       </div>
     <div>
       <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
@@ -34,7 +37,7 @@
   <% end %>
 <% end %>
 <% if @purchase_requests.any? { |request| request.status == "accepted" && request.ganja.user == current_user } %>
-  <h2>Accepted</h2>
+  <h2>Deals You've Accepted</h2>
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "accepted" && request.ganja.user == current_user %>
@@ -43,7 +46,7 @@
         <p>Name: <%= request.ganja.name %></p>
         <p>Strain: <%= request.ganja.strain %></p>
         <p>Price: $<%= request.ganja.unit_price %></p>
-        <p>User: <%= request.ganja.user.email %>
+        <p>Pickup Location: <%= request.ganja.pickup_local %>
       </div>
     <div>
     </div>
@@ -51,7 +54,7 @@
   <% end %>
 <% end %>
 <% if @purchase_requests.any? { |request| request.status == "declined" && request.ganja.user == current_user } %>
-  <h2>Declined</h2>
+  <h2>Deals You've Declined</h2>
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "declined" && request.ganja.user == current_user %>
@@ -60,7 +63,7 @@
         <p>Name: <%= request.ganja.name %></p>
         <p>Strain: <%= request.ganja.strain %></p>
         <p>Price: $<%= request.ganja.unit_price %></p>
-        <p>User: <%= request.ganja.user.email %>
+        <p>Pickup Location: <%= request.ganja.pickup_local %>
       </div>
     <div>
     </div>
