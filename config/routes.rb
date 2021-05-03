@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :ganjas do
     resources :purchase_requests, only: %i[new create]
   end
-  resources :purchase_requests do
+  resources :purchase_requests, except: %i[new create] do
     patch :accept
     patch :decline
   end
