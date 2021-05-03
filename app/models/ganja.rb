@@ -1,6 +1,7 @@
 class Ganja < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
+  has_many :purchase_requests
 
   validates :name, presence: true
   validates :strain, presence: true
