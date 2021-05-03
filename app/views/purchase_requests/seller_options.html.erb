@@ -1,4 +1,4 @@
-<div class="edit">
+<div class="form">
   <ul>
     <% @ganjas.each do |ganja| %>
       <li>
@@ -8,6 +8,7 @@
           <p><%= ganja.unit_price %> <%= ganja.variety %></p>
         </div>
       </li>
+      <%= link_to "Create",  new_ganja_path(ganja), class: 'text-primary' %>
       <%= link_to "Edit",  edit_ganja_path(ganja), class: 'text-warning' %>
     <% end %>
 </div>
