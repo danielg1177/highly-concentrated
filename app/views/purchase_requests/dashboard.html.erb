@@ -1,6 +1,6 @@
 <div class="dashboard">
 <% if @purchase_requests.any? { |request| request.status == "pending" && request.user == current_user } %>
-  <h2>My Requests</h2>
+  <h2>My Pending Requests</h2>
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "pending" && request.user == current_user %>
