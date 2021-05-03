@@ -1,6 +1,6 @@
 class PurchaseRequestsController < ApplicationController
   before_action :set_ganja, only: %i[new create]
-  before_action :set_purchase_request, only: [:accept, :decline]
+  before_action :set_purchase_request, only: %i[accept decline]
 
   def index
     @purchase_requests = policy_scope(PurchaseRequest)
@@ -9,13 +9,13 @@ class PurchaseRequestsController < ApplicationController
   def seller_options
     @purchase_requests = policy_scope(PurchaseRequest)
     authorize @purchase_requests
+    @ganjas = Ganja.where(user: current_user)
   end
 
   def dashboard
     @purchase_requests = policy_scope(PurchaseRequest)
     authorize @purchase_requests
   end
-
 
   def new
     @purchase_request = PurchaseRequest.new

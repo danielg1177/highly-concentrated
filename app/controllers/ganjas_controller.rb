@@ -1,5 +1,5 @@
 class GanjasController < ApplicationController
-  before_action :set_ganja, only: %i[show edit]
+  before_action :set_ganja, only: %i[show edit update]
 
   def index
     @ganja = policy_scope(Ganja)
@@ -30,11 +30,14 @@ class GanjasController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @ganja
+  end
 
   def update
     @ganja.update(ganja_params)
-    redirect_to ganja_path(@ganja)
+    authorize @ganja
+    redirect_to seller_options_path
   end
 
   private
