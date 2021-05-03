@@ -6,7 +6,7 @@ class PurchaseRequestsController < ApplicationController
     @purchase_requests = policy_scope(PurchaseRequest)
   end
 
-  def dashboard
+  def seller_options
     @purchase_requests = policy_scope(PurchaseRequest)
     authorize @purchase_requests
   end

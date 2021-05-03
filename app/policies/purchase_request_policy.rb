@@ -5,7 +5,7 @@ class PurchaseRequestPolicy < ApplicationPolicy
     end
   end
 
-  def dashboard?
+  def seller_options?
     true if user
   end
 
