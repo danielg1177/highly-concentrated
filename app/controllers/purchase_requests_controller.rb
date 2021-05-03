@@ -11,6 +11,11 @@ class PurchaseRequestsController < ApplicationController
     authorize @purchase_requests
   end
 
+  def dashboard
+    @purchase_requests = policy_scope(PurchaseRequest)
+    authorize @purchase_requests
+  end
+
 
   def new
     @purchase_request = PurchaseRequest.new
