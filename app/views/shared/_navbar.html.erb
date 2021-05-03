@@ -1,7 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div>
+     <%= link_to root_path do %>
+     <%= image_tag "THC_favicon.png", height: '40px', width: '40px' %>
+    <% end %>
+</div>
+  <div>
     <% if user_signed_in? %>
-      <p class="nav-item"><%= current_user.email %></p>
+      <p class="nav-item"><%= image_tag "https://images.unsplash.com/photo-1589140915708-20ff586fe767?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d2VlZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: '40px', width: '40px' %><%= current_user.email %></p>
     <% end %>
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,13 +34,6 @@
           <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
-      <li class="nav-item dropdown">
-        <%= image_tag "https://images.unsplash.com/photo-1589140915708-20ff586fe767?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d2VlZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: '40px', width: '40px' %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
-        </div>
-      </li>
     </ul>
   </div>
 </div>
