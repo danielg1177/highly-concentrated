@@ -1,6 +1,6 @@
 class GanjasController < ApplicationController
   before_action :set_ganja, only: %i[show edit]
-  skip_before_action :authenticate_user!, only: [:edible, :flower]
+  skip_before_action :authenticate_user!, only: %i[edible flower]
 
   def index
     @ganja = policy_scope(Ganja)
@@ -25,17 +25,20 @@ class GanjasController < ApplicationController
   def create
     @ganja = Ganja.new(ganja_params)
     if @ganja.save
-      redirect_to ganja_path_id
+      redirect_to dashboard_path
     else
       render :new
     end
   end
 
-  def edit; end
+  def edit
+    authorize @ganja
+  end
 
   def update
     @ganja.update(ganja_params)
-    redirect_to ganja_path(@ganja)
+    authorize @ganja
+    redirect_to seller_options_path
   end
 
   private

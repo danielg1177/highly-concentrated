@@ -4,10 +4,11 @@
       <p>Strain: <%= ganja.strain %></p>
       <p>Price: $<%= ganja.unit_price %></p>
       <p>Description: <%= ganja.strain %></p>
-    <!-- </div> -->
-  <% end %>
-  </div>
-    <div>
     </div>
-<!--   <img src="https://source.unsplash.com/collection/115725/200x200" alt="weed flower",
-  width: 200, height: 200, crop: :fill)/> -->
+    <div>
+      <% if ganja.photo.attached? %>
+        <%= cl_image_tag(ganja.photo.id, width: 400, height: 300, crop: :fill) %>
+      <% end %>
+      <%= link_to "Request", new_ganja_purchase_request_path(ganja) %>
+    </div>
+  <% end %>
