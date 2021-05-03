@@ -1,5 +1,5 @@
 class GanjasController < ApplicationController
-  before_action :set_ganja, only: %i[show edit]
+  before_action :set_ganja, only: %i[show edit update]
   skip_before_action :authenticate_user!, only: %i[edible flower]
 
   def index
