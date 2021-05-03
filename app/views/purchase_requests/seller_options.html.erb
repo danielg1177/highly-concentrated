@@ -13,11 +13,12 @@
         <div class="product-details1">
           <p>Name: <%= ganja.name %></p>
           <p>Strain: <%= ganja.strain %></p>
+          <p>Type: <%= ganja.variety %></p>
         </div>
         <div class="product-details2">
           <%= link_to "Edit", edit_ganja_path(ganja), class: 'text-warning' %>
           <p>Price: $<%= ganja.unit_price %></p>
-          <p>Pickup Location: <%= ganja.pickup_local %></p>
+          <p>Pickup: <%= ganja.pickup_local %></p>
         </div>
       </div>
     </div>
@@ -41,11 +42,12 @@
           <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
           <p>Name: <%= request.ganja.name %></p>
           <p>Strain: <%= request.ganja.strain %></p>
+          <p>Type: <%= request.ganja.variety %></p>
         </div>
         <div class="product-details2">
           <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
           <p>Price: $<%= request.ganja.unit_price %></p>
-          <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+          <p>Pickup: <%= request.ganja.pickup_local %></p>
       </div>
     </div>
   </div>
@@ -65,10 +67,11 @@
           <div class="product-details1">
             <p>Name: <%= request.ganja.name %></p>
             <p>Strain: <%= request.ganja.strain %></p>
+            <p>Type: <%= request.ganja.variety %></p>
           </div>
           <div class="product-details2">
             <p>Price: $<%= request.ganja.unit_price %></p>
-            <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+            <p>Pickup: <%= request.ganja.pickup_local %></p>
           </div>
         </div>
       </div>
@@ -94,7 +97,8 @@
           </div>
           <div class="product-details2">
             <p>Price: $<%= request.ganja.unit_price %></p>
-            <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+            <p>Pickup: <%= request.ganja.pickup_local %></p>
+            <p>Type: <%= request.ganja.variety %></p>
           </div>
         </div>
       </div>
