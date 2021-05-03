@@ -1,0 +1,19 @@
+
+.sub-container {
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card p {
+  font-size: 10px;
+  margin: 0;
+}
+
+.product-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
+}
