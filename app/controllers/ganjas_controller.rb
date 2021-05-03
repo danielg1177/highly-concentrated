@@ -27,7 +27,7 @@ class GanjasController < ApplicationController
     @ganja = Ganja.new(ganja_params)
     authorize @ganja
     if @ganja.save
-      redirect_to dashboard_path
+      redirect_to seller_options_path
     else
       render :new
     end
