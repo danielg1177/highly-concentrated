@@ -4,15 +4,14 @@
 
 .btn-create {
   display: flex;
-  // flex-direction: row;
   background-color: #55B15B;
   color: #fff;
   font-size: 22px;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  // position: sticky;
-  padding: 15px 15px 15px 15px;
-  margin: 10px 35px 10px 35px;
+  padding: 15px 0px 15px 0px;
+  margin: 15px 60px 15px 60px;
   border: 2.5px solid #000000;
   box-sizing: border-box;
   border-radius: 32px;
@@ -22,10 +21,12 @@
   display: flex;
   border: none;
   color: #fff;
-  // text-decoration: none;
+  font-size: 18px;
   background-color: #9EBA91;
-  // padding: 15px 45px;
-  padding: 15px 15px 15px 15px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px 0px 15px 0px;
   margin: 10px 30px 10px 30px;
   // font-family: "Work Sans", "Helvetica", "sans-serif";
   // font-size: 14px;
@@ -33,19 +34,19 @@
   // font-weight: 500;
   letter-spacing: 1px;
   border-radius: 32px;
-  text-align: center;
   position: relative;
-  // outline: none;
 }
 
 .btn-edible {
-display: flex;
+ display: flex;
   border: none;
   color: #fff;
-  // text-decoration: none;
+  font-size: 18px;
   background-color: #C36B56;
-  // padding: 15px 45px;
-  padding: 15px 15px 15px 15px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px 0px 15px 0px;
   margin: 10px 30px 10px 30px;
   // font-family: "Work Sans", "Helvetica", "sans-serif";
   // font-size: 14px;
@@ -53,7 +54,5 @@ display: flex;
   // font-weight: 500;
   letter-spacing: 1px;
   border-radius: 32px;
-  text-align: center;
   position: relative;
-  // outline: none;
 }
