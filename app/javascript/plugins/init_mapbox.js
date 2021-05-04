@@ -22,10 +22,10 @@ const initMapbox = () => {
     // Create a HTML element for your custom marker
       const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundImage = `url('https://e7.pngegg.com/pngimages/499/98/png-clipart-cannabis-weed-golf-club-readygolf-marijuana-pot-leaf-ball-marker-hat-clip-bud-cannabis-leaf-black-backpack-leaf-hemp-family.png')`;
+      element.style.backgroundImage = `url('https://www.pngegg.com/en/png-sjpwu')`;
       element.style.backgroundSize = 'contain';
       element.style.width = '20px';
-      element.style.height = '10px';
+      element.style.height = '1px';
     // Pass the element as an argument to the new marker
     new mapboxgl.Marker(element)
       .setLngLat([marker.lng, marker.lat])
