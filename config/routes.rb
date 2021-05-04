@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get 'purchase_requests/dashboard', to: "purchase_requests#dashboard", as: 'dashboard'
   get 'ganjas/edible', to: "ganjas#edible", as: 'ganja_edible'
   get 'ganjas/flower', to: "ganjas#flower", as: 'ganja_flower'
+  get 'chats/index', to: "chats#index", as: 'messages'
   root to: 'pages#home'
   resources :ganjas do
     resources :purchase_requests, only: %i[new create]
+    resources :chats, only: %i[new create]
   end
   resources :purchase_requests, except: %i[new create] do
     patch :accept

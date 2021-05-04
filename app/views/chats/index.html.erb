@@ -1,0 +1,8 @@
+<% @chats.each do |message| %>
+  <% if message.receiver == current_user %>
+    <h4 class="receiver"><%= message.content %></h4>
+  <% end %>
+  <% if message.sender == current_user %>
+    <h4 class="sender"><%= message.content %></h4>
+  <% end %>
+<% end %>

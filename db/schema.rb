@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_105457) do
+ActiveRecord::Schema.define(version: 2021_05_04_124920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2021_05_04_105457) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.string "content"
+    t.bigint "receiver_id"
+    t.bigint "sender_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_id"], name: "index_chats_on_receiver_id"
+    t.index ["sender_id"], name: "index_chats_on_sender_id"
+  end
+
   create_table "ganjas", force: :cascade do |t|
     t.string "name"
     t.string "strain"
@@ -47,6 +57,11 @@ ActiveRecord::Schema.define(version: 2021_05_04_105457) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_ganjas_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "purchase_requests", force: :cascade do |t|
@@ -73,6 +88,8 @@ ActiveRecord::Schema.define(version: 2021_05_04_105457) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chats", "users", column: "receiver_id"
+  add_foreign_key "chats", "users", column: "sender_id"
   add_foreign_key "ganjas", "users"
   add_foreign_key "purchase_requests", "ganjas"
   add_foreign_key "purchase_requests", "users"
