@@ -44,7 +44,7 @@ puts "Creating edible seeds"
 
 20.times do
   file = URI.open('https://images.unsplash.com/photo-1616645169694-37295f54d979?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJyb3duaWV8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
-  ganja = Ganja.new(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: Faker::Cannabis.health_benefit, unit_price: rand(10..100), variety: "edible", pickup_local: Faker::Nation.capital_city, user: User.all.sample)
+  ganja = Ganja.new(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: Faker::Cannabis.health_benefit, unit_price: rand(10..100), variety: "edible", pickup_local: "#{Faker::Address.street_address}, New York", user: User.all.sample)
   ganja.photo.attach(io: file, filename: "nes.png", content_type: 'image/png')
   ganja.save
 end

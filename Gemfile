@@ -35,6 +35,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'pundit'
+gem 'flatpickr'
 
 group :development, :test do
   gem 'pry-byebug'
