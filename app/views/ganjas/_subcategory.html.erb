@@ -1,36 +1,43 @@
 <div class="product-cards">
   <% ganjas.each do |ganja| %>
-    <div class="product-card" data-toggle="modal" data-target="#exampleModal">
+    <div class="product-card" data-toggle="modal" data-target="#modal-<%= ganja.id %>">
       <div class="product-details">
         <div class="product-details1">
-          <p>Name: <%= ganja.name %></p>
-          <p>Strain: <%= ganja.strain %></p>
+          <div>
+            <p>Name: <%= ganja.name %></p>
+            <p>Strain: <%= ganja.strain %></p>
+          </div>
+          <div>
+            <p class="bold">Price: $<%= ganja.unit_price %></p>
+          </div>
         </div>
         <div class="product-details2">
-          <p>Price: $<%= ganja.unit_price %></p>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><%= ganja.name %></h5>
-        </div>
-        <div class="modal-body">
           <% if ganja.photo.attached? %>
-            <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 380, height: 270) %>
+            <%= cl_image_tag(ganja.photo.key, crop: :fill, height: 100) %>
           <% end %>
-          <p>Description: <%= ganja.strain %></p>
-          <p>Strain: <%= ganja.strain %></p>
-        </div>
-        <div class="modal-footer">
-          <%= link_to "Request", new_ganja_purchase_request_path(ganja) %>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-  </div>
+    <div class="modal fade" id="modal-<%= ganja.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= ganja.name %></h5>
+          </div>
+          <div class="modal-body">
+            <% if ganja.photo.attached? %>
+              <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 380, height: 270) %>
+            <% end %>
+            <p>Description: <%= ganja.strain %></p>
+            <p>Strain: <%= ganja.strain %></p>
+          </div>
+          <div class="modal-footer">
+            <%= link_to "Request", new_ganja_purchase_request_path(ganja) %>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
 
