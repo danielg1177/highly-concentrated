@@ -44,6 +44,7 @@ class PurchaseRequestsController < ApplicationController
     @purchase_request.user = current_user
     @purchase_request.status = 'pending'
     if @purchase_request.save
+      flash[:notice] = "request created"
       redirect_to dashboard_path
     else
       render :new
@@ -54,14 +55,16 @@ class PurchaseRequestsController < ApplicationController
     authorize @purchase_request
     @purchase_request.status = 'accepted'
     @purchase_request.save
-    redirect_to dashboard_path
+    flash[:notice] = "request accepted"
+    redirect_to seller_options_path
   end
 
   def decline
     authorize @purchase_request
     @purchase_request.status = 'declined'
     @purchase_request.save
-    redirect_to dashboard_path
+    flash[:notice] = "request declined"
+    redirect_to seller_options_path
   end
 
   private

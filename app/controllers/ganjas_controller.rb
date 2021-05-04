@@ -39,6 +39,7 @@ class GanjasController < ApplicationController
     @ganja = Ganja.new(ganja_params.merge(user: current_user))
     authorize @ganja
     if @ganja.save
+      flash[:notice] = "ganja created"
       redirect_to seller_options_path
     else
       render :new
