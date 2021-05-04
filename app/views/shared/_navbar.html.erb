@@ -1,39 +1,22 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div>
-     <%= link_to root_path do %>
-     <%= image_tag "THC_favicon.png", height: '40px', width: '40px' %>
+    <%= link_to root_path do %>
+      <%= image_tag "THC_favicon.png", height: '40px', width: '40px' %>
     <% end %>
 </div>
-  <div>
+<div>
+</div>
+  <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP4AAADGCAMAAADFYc2jAAAAdVBMVEUAAAD///80NDSoqKiEhIT5+fnq6uqrq6vV1dVnZ2e2trbPz8+lpaV8fHzAwMDIyMjd3d2NjY1ubm6VlZVZWVkSEhI9PT2bm5vs7OxGRkbl5eWKiopMTExfX19XV1e1tbUNDQ0fHx8kJCQsLCwhISF2dnZAQEBeySiRAAADeklEQVR4nO2d2XaiUBBFCxVFkUGJsxk7yf9/YoOEBtT0I2ctd+2nPJ69CN5L1aWwoEs0TrYbe1g222QW9YSt/TPcPbB5y2YX3tNfqnMNx/hGf/qtzjQkh31fP1MHGpq4q5+q0wxP1upH6iwK8kY/VCeR8Bb+6D+rk2hY1/rAG78mvuiP1DFUHCp93JrXEpX6c3UIHUmpr86gJDDkmt9wtIU6gpLMVuoISpY2UUdQsmLrT+ykjqDkZDt1BCU7w+74K1LL1RGUHOm7viBRZ9AxKfXBu968et4/q1OoeLmUO7CXP69rfWt1Dg1fTaUX0du75r2p9AbItf/YdnmAt3/e7fHRrv/bsd/hDVG9jvltfz99V4caio/s3umOYHFQBxuCc3r/cEt1yCEtXrajh2X7VKT7nnBfH4frk3F9Mq5PxvXJuD4Z1yfj+mRcn4zrk3F9Mq5PxvXJuD4Z1yfj+mRcn4zrk3F9Mq5PxvXJuD6Za/1p/DobPyizRTz9n36cPP5bPev0F33MwL7ZHf34Q51qOP5E1/qwER5FXx/1Jk/FvKuPs2/8L/rI8SWrRh86vyKr9ZnDGs02tT52dE1R6VMvfklY6mM2e7e8lvrYWZVm58DA//vV4BrwqE6zyMC3vtmCPbGtYM/rO7H1J+xZnSsbqyMomVmsjqAkZm97Qgu26gw6DuxHnrE/8NJq3C0FuthlP6VO6JD2tCl0f6mTKEjaNseLOsvwPHuTq21xwh77r1qcQRB/qiMNx22Dm368oSIFfKNnnXWNYUeb9le6frCNjOuTcX0yrk/G9cm4PhnXJ+P6ZFyfjOuTcX0yrk/G9cm4PhnXJ+P6ZFyfjOuTcX0yrk/G9cm4fodpWjxhP0G+OKuPWw/BLx+gz97VwYbiM7vRD1Fv88yv9I/qQENz7OpH6jTDk7f6uGtfsf+nD5pS2jJq9JHvsJpNan3gjV+TX/QP6hgqnip97MWvLr9R7/yKU6mvziBkE1iuzqBkb9AhvTWZFeoISpbsgXUrtv6EPazyxL73C/Yvf8pe93P0rq+UD9bqDDq+Sn3wsM64et7HTqv8vpQ7sEPKs7rWB5zXVvH8U+rcq4NoCJtCN7LelbddHuDWL+v2+HA/f3G/w3tELX+H5quMbX9/p840HMt7pzvC4k2dawg2u/De6Y7LErBMRg/8Oc7NNplFPeG/gtR0A1+zKbwAAAAASUVORK5CYII=", width: 30, height: 30, class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <%= link_to "Home", root_path, class: "dropdown-item" %>
     <% if user_signed_in? %>
-      <p class="nav-item"><%= image_tag "https://images.unsplash.com/photo-1589140915708-20ff586fe767?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d2VlZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: '40px', width: '40px' %><%= current_user.email %></p>
+      <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+      <%= link_to "Seller Options", seller_options_path, class: "dropdown-item" %>
+      <%= link_to "Sign Out", destroy_user_session_path(current_user), method: :delete, class: "dropdown-item" %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path, class: "dropdown-item" %>
     <% end %>
   </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
-      </li>
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Sign Out", destroy_user_session_path(current_user), method: :delete, class: "nav-link" %>
-        </li>
-        <li class="nav-items">
-          <%= link_to "Seller Options", seller_options_path, class: "nav-link" %>
-        </li>
-        <li class="nav-items">
-          <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
-        </li>
-      <% else %>
-        <li class="nav-items">
-          <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
 </div>
+
+
