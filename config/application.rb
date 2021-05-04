@@ -15,7 +15,8 @@ module HighlyConcentrated
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-
+    config.time_zone = 'Eastern Time (US & Canada)'
+    config.active_record.default_timezone = :local
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
