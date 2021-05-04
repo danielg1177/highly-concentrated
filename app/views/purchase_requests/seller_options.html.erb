@@ -1,7 +1,10 @@
+  <div class="btn btn-create">
+    <%= link_to "Create",  new_ganja_path %>
+  </div>
 <div class="product-cards">
 <div class="seller-options">
 <% if @purchase_requests.any? { |request| request.status == "pending" && request.ganja.user == current_user } %>
-  <h2>Pending Your Approval</h2>
+  <h2 class="header-text">Pending Your Approval</h2>
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "pending" && request.ganja.user == current_user %>
@@ -59,9 +62,6 @@
 
 <% if @ganjas %>
   <h2 class="header-text">My Available Ganja</h2>
-  <div class="create">
-    <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
-  </div>
 
   <% @ganjas.each do |ganja| %>
     <div class="product-card" data-toggle="modal" data-target="#modal-<%= ganja.id %>">
