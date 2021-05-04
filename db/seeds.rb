@@ -52,11 +52,11 @@ end
 puts "Finished creating edible seeds"
 
 10.times do
-  PurchaseRequest.create!(user: User.all.sample, ganja: Ganja.all.sample, status: 'pending', pickup_time: '12:00')
+  PurchaseRequest.create!(user: User.all.sample, ganja: Ganja.all.sample, status: 'pending', pickup_time: DateTime.current)
 end
 
 10.times do
-  PurchaseRequest.create!(user: User.all.sample, ganja: Ganja.all.sample, status: 'accepted', pickup_time: '12:00')
+  PurchaseRequest.create!(user: User.all.sample, ganja: Ganja.all.sample, status: 'accepted', pickup_time: DateTime.current)
 end
 
 10.times do
