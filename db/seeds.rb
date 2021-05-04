@@ -7,6 +7,11 @@ require "open-uri"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+PurchaseRequest.destroy_all
+Ganja.destroy_all
+User.destroy_all
+
+
 
 puts "Creating flower seeds"
 
@@ -19,15 +24,16 @@ USERS = [
 USERS.each do |user_params|
   User.create!(user_params)
 end
-file = URI.open('https://images.unsplash.com/photo-1603909223429-69bb7101f420?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHdlZWR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
-
-i = 0
 
 20.times do
-  ganja = Ganja.new(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: "A #{Faker::Cannabis.type} that #{Faker::Cannabis.health_benefit}", unit_price: rand(10..100), variety: "flower", pickup_local: Faker::Nation.capital_city, user_id: rand(1..4))
-  ganja.photo.attach(io: file, filename: "nes#{i}.png", content_type: 'image/png')
-  ganja.save
-  i += 1
+  file = URI.open('https://images.unsplash.com/photo-1603909223429-69bb7101f420?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHdlZWR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
+  ganja = Ganja.new(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: Faker::Cannabis.health_benefit, unit_price: rand(10..100), variety: "flower", pickup_local: Faker::Nation.capital_city, user: User.all.sample)
+  ganja.photo.attach(io: file, filename: "nes.png", content_type: 'image/png')
+  if ganja.save
+    puts "saved"
+  else
+    p ganja.errors.messages
+  end
 end
 
 puts "Finished creating flower seeds"
@@ -35,26 +41,25 @@ puts "Finished creating flower seeds"
 
 puts "Creating edible seeds"
 
-file = URI.open('https://images.unsplash.com/photo-1616645169694-37295f54d979?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJyb3duaWV8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
 
 20.times do
-  ganja = Ganja.new(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: "A #{Faker::Cannabis.type} that #{Faker::Cannabis.health_benefit}", unit_price: rand(10..100), variety: "edible", pickup_local: Faker::Nation.capital_city, user_id: rand(1..4))
-  ganja.photo.attach(io: file, filename: "nes#{i}.png", content_type: 'image/png')
+  file = URI.open('https://images.unsplash.com/photo-1616645169694-37295f54d979?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJyb3duaWV8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
+  ganja = Ganja.new(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: Faker::Cannabis.health_benefit, unit_price: rand(10..100), variety: "edible", pickup_local: Faker::Nation.capital_city, user: User.all.sample)
+  ganja.photo.attach(io: file, filename: "nes.png", content_type: 'image/png')
   ganja.save
-  i += 1
 end
 
 puts "Finished creating edible seeds"
 
 10.times do
-  PurchaseRequest.create!(user_id: rand(1..4), ganja_id: rand(1..40), status: 'pending', pickup_time: '12:00')
+  PurchaseRequest.create!(user: User.all.sample, ganja: Ganja.all.sample, status: 'pending', pickup_time: '12:00')
 end
 
 10.times do
-  PurchaseRequest.create!(user_id: rand(1..4), ganja_id: rand(1..40), status: 'accepted', pickup_time: '12:00')
+  PurchaseRequest.create!(user: User.all.sample, ganja: Ganja.all.sample, status: 'accepted', pickup_time: '12:00')
 end
 
 10.times do
-  PurchaseRequest.create!(user_id: rand(1..4), ganja_id: rand(1..40), status: 'declined', pickup_time: '12:00')
+  PurchaseRequest.create!(user: User.all.sample, ganja: Ganja.all.sample, status: 'declined')
 end
 

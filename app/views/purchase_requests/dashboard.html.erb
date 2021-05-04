@@ -4,48 +4,100 @@
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "pending" && request.user == current_user %>
-    <div class="product-card">
-      <div class="product-photo">
-        <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 380, height: 270) %>
-        <% end %>
-      </div>
+    <div class="product-card" data-toggle="modal" data-target="#modal-<%= request.id %>">
       <div class="product-details">
         <div class="product-details1">
-          <p>Name: <%= request.ganja.name %></p>
-          <p>Strain: <%= request.ganja.strain %></p>
-          <p>Type: <%= request.ganja.variety %></p>
+          <div class="product-p">
+            <p>Name: <%= request.ganja.name %></p>
+            <p>Strain: <%= request.ganja.strain %></p>
+            <p>Location: <%= request.ganja.pickup_local %></p>
+          </div>
+          <div>
+            <p class="bold">Price: $<%= request.ganja.unit_price %></p>
+          </div>
         </div>
         <div class="product-details2">
-          <p>Price: $<%= request.ganja.unit_price %></p>
-          <p><%= request.ganja.user.email %> </p>
+          <% if request.ganja.photo.attached? %>
+            <%= cl_image_tag(request.ganja.photo.key, crop: :fill, height: 100, class: "product-img") %>
+          <% end %>
         </div>
       </div>
     <div>
     </div>
   </div>
+  <div class="modal fade" id="modal-<%= request.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= request.ganja.name %></h5>
+          </div>
+          <div class="modal-body">
+            <% if request.ganja.photo.attached? %>
+              <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 380, height: 200) %>
+            <% end %>
+            <div class="modal-content">
+              <p>Strain: <%= request.ganja.strain %></p>
+              <p>Description: <%= request.ganja.strain %></p>
+              <p>Location: <%= request.ganja.pickup_local %> </p>
+              <p class="bold">Price: $<%= request.ganja.unit_price %></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div></div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 <% end %>
+
 <% if @purchase_requests.any? { |request| request.status == "accepted" && request.user == current_user } %>
   <h2>Requests Accepted</h2>
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "accepted" && request.user == current_user %>
-    <div class="product-card">
-      <div class="product-photo">
-        <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 380, height: 270) %>
-        <% end %>
-      </div>
+    <div class="product-card" data-toggle="modal" data-target="#modal-<%= request.id %>">
       <div class="product-details">
         <div class="product-details1">
-          <p>Name: <%= request.ganja.name %></p>
-          <p>Strain: <%= request.ganja.strain %></p>
-          <p>Type: <%= request.ganja.variety %></p>
+          <div class="product-p">
+            <p>Strain: <%= request.ganja.strain %></p>
+            <p>Pickup time: <%= request.pickup_time %> </p>
+            <p>Location: <%= request.ganja.pickup_local %></p>
+          </div>
+          <div>
+            <p class="bold">Price: $<%= request.ganja.unit_price %></p>
+          </div>
         </div>
         <div class="product-details2">
-          <p>Price: $<%= request.ganja.unit_price %></p>
-          <p><%= request.ganja.user.email %> </p>
+          <% if request.ganja.photo.attached? %>
+            <%= cl_image_tag(request.ganja.photo.key, crop: :fill, height: 100, class: "product-img") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-<%= request.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= request.ganja.name %></h5>
+          </div>
+          <div class="modal-body">
+            <% if request.ganja.photo.attached? %>
+              <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 380, height: 200) %>
+            <% end %>
+            <div class="modal-content">
+              <p>Strain: <%= request.ganja.strain %></p>
+              <p>Description: <%= request.ganja.strain %></p>
+              <p>Location: <%= request.ganja.pickup_local %> </p>
+              <p>Pickup time: <%= request.pickup_time %> </p>
+              <p class="bold">Price: $<%= request.ganja.unit_price %></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div></div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
@@ -56,26 +108,49 @@
 <% end %>
 <% @purchase_requests.each do |request| %>
   <% if request.status == "declined" && request.user == current_user %>
-    <div class="product-card">
-      <div class="product-photo">
-        <% if request.ganja.photo.attached? %>
-          <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 380, height: 270) %>
-        <% end %>
-      </div>
+    <div class="product-card" data-toggle="modal" data-target="#modal-<%= request.id %>">
       <div class="product-details">
         <div class="product-details1">
-          <p>Name: <%= request.ganja.name %></p>
-          <p>Strain: <%= request.ganja.strain %></p>
-          <p>Type: <%= request.ganja.variety %></p>s
+          <div class="product-p">
+            <p>Name: <%= request.ganja.name %></p>
+            <p>Strain: <%= request.ganja.strain %></p>
+            <p>Location: <%= request.ganja.pickup_local %></p>
+          </div>
+          <div>
+            <p class="bold">Price: $<%= request.ganja.unit_price %></p>
+          </div>
         </div>
         <div class="product-details2">
-          <p>Price: $<%= request.ganja.unit_price %></p>
-          <p><%= request.ganja.user.email %></p>
+          <% if request.ganja.photo.attached? %>
+            <%= cl_image_tag(request.ganja.photo.key, crop: :fill, height: 100, class: "product-img") %>
+          <% end %>
         </div>
       </div>
-    <div>
     </div>
-  </div>
+    <div class="modal fade" id="modal-<%= request.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= request.ganja.name %></h5>
+          </div>
+          <div class="modal-body">
+            <% if request.ganja.photo.attached? %>
+              <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 380, height: 200) %>
+            <% end %>
+            <div class="modal-content">
+              <p>Strain: <%= request.ganja.strain %></p>
+              <p>Description: <%= request.ganja.strain %></p>
+              <p>Location: <%= request.ganja.pickup_local %> </p>
+              <p class="bold">Price: $<%= request.ganja.unit_price %></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div></div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 <% end %>
 </div>

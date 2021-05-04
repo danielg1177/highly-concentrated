@@ -3,9 +3,10 @@
     <div class="product-card" data-toggle="modal" data-target="#modal-<%= ganja.id %>">
       <div class="product-details">
         <div class="product-details1">
-          <div>
+          <div class="product-p">
             <p>Name: <%= ganja.name %></p>
             <p>Strain: <%= ganja.strain %></p>
+            <p>Location: <%= ganja.pickup_local %></p>
           </div>
           <div>
             <p class="bold">Price: $<%= ganja.unit_price %></p>
@@ -13,7 +14,7 @@
         </div>
         <div class="product-details2">
           <% if ganja.photo.attached? %>
-            <%= cl_image_tag(ganja.photo.key, crop: :fill, height: 100) %>
+            <%= cl_image_tag(ganja.photo.key, crop: :fill, height: 100, class: "product-img") %>
           <% end %>
         </div>
       </div>
@@ -26,10 +27,14 @@
           </div>
           <div class="modal-body">
             <% if ganja.photo.attached? %>
-              <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 380, height: 270) %>
+              <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 380, height: 200) %>
             <% end %>
-            <p>Description: <%= ganja.strain %></p>
-            <p>Strain: <%= ganja.strain %></p>
+            <div class="modal-content">
+              <p>Strain: <%= ganja.strain %></p>
+              <p>Description: <%= ganja.strain %></p>
+              <p>Location: <%= ganja.pickup_local %> </p>
+              <p class="bold">Price: $<%= ganja.unit_price %></p>
+            </div>
           </div>
           <div class="modal-footer">
             <%= link_to "Request", new_ganja_purchase_request_path(ganja) %>

@@ -19,6 +19,11 @@
   align-items: center;
 }
 
+.product-p p {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .product-card p {
   font-size: 14px;
   margin: 0;
@@ -34,6 +39,10 @@
   height: 70%;
 }
 
+.product-img {
+  border-radius: 8px;
+}
+
 .product-details {
   height: 100%;
   display: flex;
@@ -47,6 +56,7 @@
   justify-content: space-between;
   padding: 8px;
   height: 100%;
+  width: 230px;
 }
 
 .product-details2 {
@@ -71,6 +81,13 @@ h2  {
   justify-content: space-between;
 }
 
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .modal-header {
   display: inline;
   border: none;
@@ -78,10 +95,18 @@ h2  {
 
 .modal-content {
   height: 100%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.modal-content p {
+  margin: 0;
 }
 
 .modal-dialog {
-  height: 400px;
+  height: 550px;
 }
 
 .modal-title {
