@@ -29,9 +29,17 @@ import "bootstrap";
 
 
 // Internal imports, e.g:
+<<<<<<< HEAD
 // import { initCarousel } from '../components/carousel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initCarousel();
+=======
+import { initMapbox } from '../plugins/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
+   initMapbox();
+>>>>>>> 323218a52b5e4a0fb2ed73d04f38950e57952d4a
 });
