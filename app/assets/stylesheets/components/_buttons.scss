@@ -9,11 +9,12 @@
   text-decoration: none;
   background-color: #9EBA91;
   padding: 15px 45px;
+  font-family: "Work Sans", "Helvetica", "sans-serif";
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 3px;
-  border-radius: 2px;
+  border-radius: 8px;
   text-align: center;
   position: relative;
   outline: none;
@@ -57,11 +58,12 @@
     text-decoration: none;
     background-color: #A7604A;
     padding: 15px 45px;
+    font-family: "Work Sans", "Helvetica", "sans-serif";
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 3px;
-    border-radius: 2px;
+    border-radius: 8px;
     text-align: center;
     position: relative;
     outline: none;
@@ -97,3 +99,10 @@
     }
   }
 }
+
+// width: 123px;
+// height: 40px;
+
+// border: 1px solid #000000;
+// box-sizing: border-box;
+// border-radius: 8px;
