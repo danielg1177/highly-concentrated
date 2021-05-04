@@ -1,7 +1,23 @@
-.sender {
+.sender h4 {
   background: green;
 }
 
 .receiver {
+  text-align: right;
+}
+
+.receiver h4 {
   background: blue;
+}
+
+.message h4 {
+  color: white;
+  display: inline;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.message {
+  margin: 10px;
+  padding: 10px;
 }
