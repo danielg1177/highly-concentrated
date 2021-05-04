@@ -1,5 +1,8 @@
 <div class="product-cards">
 <div class="seller-options">
+<div class="create">
+  <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
+</div>
 <% if @purchase_requests.any? { |request| request.status == "pending" && request.ganja.user == current_user } %>
   <h2>Pending Your Approval</h2>
 <% end %>
@@ -21,7 +24,8 @@
         <div class="product-details2">
           <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
           <p>Price: $<%= request.ganja.unit_price %></p>
-          <p>Pickup: <%= request.ganja.pickup_local %></p>
+          <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+          <p>Pickup Time: <%= request.pickup_time %></p>
           <p>From: <%= request.user.email %></p>
       </div>
     </div>
@@ -30,9 +34,6 @@
 <% end %>
 <% if @ganjas %>
   <h2 class="header-text">My Available Ganja</h2>
-  <div class="create">
-    <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
-  </div>
   <% @ganjas.each do |ganja| %>
     <div class="product-card">
       <div class="product-photo">
@@ -49,7 +50,7 @@
         <div class="product-details2">
           <%= link_to "Edit", edit_ganja_path(ganja), class: 'text-warning' %>
           <p>Price: $<%= ganja.unit_price %></p>
-          <p>Pickup: <%= ganja.pickup_local %></p>
+          <p>Pickup Location: <%= ganja.pickup_local %></p>
         </div>
       </div>
     </div>
@@ -74,7 +75,8 @@
         </div>
         <div class="product-details2">
           <p>Price: $<%= request.ganja.unit_price %></p>
-          <p>Pickup: <%= request.ganja.pickup_local %></p>
+          <p>Pickup Location: <%= request.ganja.pickup_local %></p>
+          <p>Pickup Time: <%= request.pickup_time %></p>
           <p>From: <%= request.user.email %></p>
         </div>
       </div>
@@ -102,7 +104,7 @@
         </div>
         <div class="product-details2">
           <p>Price: $<%= request.ganja.unit_price %></p>
-          <p>Pickup: <%= request.ganja.pickup_local %></p>
+          <p>Pickup Location: <%= request.ganja.pickup_local %></p>
           <p>From: <%= request.user.email %></p>
         </div>
       </div>
