@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'ganjas/flower', to: "ganjas#flower", as: 'ganja_flower'
   get 'chats/index', to: "chats#index", as: 'messages'
   root to: 'pages#home'
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   resources :ganjas do
     resources :purchase_requests, only: %i[new create]
     resources :chats, only: %i[new create]
