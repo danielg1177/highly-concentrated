@@ -1,3 +1,10 @@
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+<%= link_to "Flower", ganja_edible_path %>
+
+<h1>The Highly Concentrated</h1>
+<p>Can’t focus? <br>
 <h1 class="header-text">The Highly Concentrated</h1>
 <p class="body"> Can’t focus? <br>
  Need to set your mind right? <br>
@@ -12,3 +19,7 @@ Just reach out and get Highly Concentrated.</p>
     <%= link_to 'Edibles', ganja_edible_path, class: "btn-edible" %>
   </div>
 </div>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
