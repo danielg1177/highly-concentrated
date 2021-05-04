@@ -24,11 +24,13 @@ require("channels")
 
 // External imports
 import "bootstrap";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+// import { initCarousel } from '../components/carousel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  // initCarousel();
 });

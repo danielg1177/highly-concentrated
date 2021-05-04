@@ -3,193 +3,57 @@
 }
 
 .btn-create {
-// *
-// *:after
-// *:before
-//   box-sizing border-box
-
-// :root {
-//   --bg #fafafa
-// }
-
-  --borderWidth: 5px;
-  --boxShadowDepth: 8px;
-  --buttonColor: red;
-  --fontSize: 3px;
-  --horizontalPadding: 16px;
-  --verticalPadding: 8px;
-  background: transparent;
-  border: calc(var(--borderWidth) * 1px) solid var(--buttonColor);
-  box-shadow: calc(var(--boxShadowDepth) * 1px) calc(var(--boxShadowDepth) * 1px) 0 #888;
-  color: var(--buttonColor);
-  cursor: pointer;
-  font-size: calc(var(--fontSize) * 1rem);
-  font-weight: bold;
-  outline: transparent;
-  padding: calc(var(--verticalPadding) * 1px) calc(var(--horizontalPadding) * 1px);
-  position: relative;
-  transition: box-shadow .15s ease;
-
-  &:hover;
-  box-shadow: calc(var(--boxShadowDepth) / 2 * 1px) calc(var(--boxShadowDepth) / 2 * 1px) 0 #888
-
-  &:active;
-  box-shadow: 0 0 0 #888
-
-  span
-  -webkit-clip-path: var(--clip);
-  bottom: calc(var(--borderWidth) * -1px);
-  clip-path: var(--clip);
-  left: calc(var(--borderWidth) * -1px);
-  position: absolute;
-  right: calc(var(--borderWidth) * -1px);
-  top: calc(var(--borderWidth) * -1px);
-  z-index: 1;
-
-  &:nth-of-type(1):hover
-  &:nth-of-type(2):hover
-  &:nth-of-type(3):hover
-  &:nth-of-type(4):hover
-  --clip polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  z-index: 2;
-
-  &:nth-of-type(1):hover ~ b:nth-of-type(1)
-  &:nth-of-type(2):hover ~ b:nth-of-type(2)
-  &:nth-of-type(3):hover ~ b:nth-of-type(3)
-  &:nth-of-type(4):hover ~ b:nth-of-type(4)
-  --clip inset(0 0 0 0);
-
-  &:nth-of-type(1)
-  --clip polygon(0 0, 100% 0, 50% 50%, 50% 50%);
-  &:nth-of-type(2)
-  --clip polygon(100% 0, 100% 100%, 50% 50%);
-  &:nth-of-type(3)
-  --clip polygon(0 100%, 100% 100%, 50% 50%);
-  &:nth-of-type(4)
-  --clip polygon(0 0, 0 100%, 50% 50%);
-
-    .b
-    -webkit-clip-path: var(--clip);
-    background: var(--buttonColor);
-    border: calc(var(--borderWidth) * 1px) solid var(--buttonColor);
-    bottom: calc(var(--borderWidth) * -1px);
-    font-weight: bold;
-    clip-path: var(--clip);
-    color: var(--bg, #fafafa);
-    left: calc(var(--borderWidth) * -1px);
-    padding: calc(var(--verticalPadding) * 1px) calc(var(--horizontalPadding) * 1px);
-    position: absolute;
-    right: calc(var(--borderWidth) * -1px);
-    top: calc(var(--borderWidth) * -1px);
-    transition: clip-path .25s ease;
-
-    &:nth-of-type(1)
-    --clip inset(0 0 100% 0);
-    &:nth-of-type(2)
-    --clip inset(0 0 0 100%);
-    &:nth-of-type(3)
-    --clip inset(100% 0 0 0);
-    &:nth-of-type(4)
-    --clip inset(0 100% 0 0);
-  }
+  display: flex;
+  // flex-direction: row;
+  background-color: #55B15B;
+  color: #fff;
+  font-size: 22px;
+  align-items: center;
+  text-align: center;
+  // position: sticky;
+  padding: 15px 15px 15px 15px;
+  margin: 10px 35px 10px 35px;
+  border: 2.5px solid #000000;
+  box-sizing: border-box;
+  border-radius: 32px;
 }
 
 .btn-flower {
-  display: inline-block;
+  display: flex;
   border: none;
   color: #fff;
-  text-decoration: none;
+  // text-decoration: none;
   background-color: #9EBA91;
-  padding: 15px 45px;
-  font-family: "Work Sans", "Helvetica", "sans-serif";
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 3px;
-  border-radius: 8px;
+  // padding: 15px 45px;
+  padding: 15px 15px 15px 15px;
+  margin: 10px 30px 10px 30px;
+  // font-family: "Work Sans", "Helvetica", "sans-serif";
+  // font-size: 14px;
+  // text-transform: uppercase;
+  // font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 32px;
   text-align: center;
   position: relative;
-  outline: none;
-  transition: background-color .1s ease;
-  cursor: pointer;
-  &::after {
-    transition: background-color .2s ease;
-    position: absolute;
-    // content: ''
-    height: 4px;
-    bottom: 0;
-    width: 100%;
-    background-color: darken(#9EBA91, 50%);
-    opacity: .18;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    left: 0;
-  }
-  &:focus, &:hover {
-    text-decoration: none;
-    color: #fff;
-  }
-  &:hover {
-    background-color: lighten(#9EBA91, 5%);
-    &::after {
-      opacity: .22;
-    }
-  }
-  &:active {
-    background-color: darken(#9EBA91, 5%);
-    &::after {
-      opacity: .32;
-    }
-  }
+  // outline: none;
 }
 
 .btn-edible {
-  display: inline-block;
+display: flex;
   border: none;
   color: #fff;
-  text-decoration: none;
-  background-color: #A7604A;
-  padding: 15px 45px;
-  font-family: "Work Sans", "Helvetica", "sans-serif";
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 3px;
-  border-radius: 8px;
+  // text-decoration: none;
+  background-color: #C36B56;
+  // padding: 15px 45px;
+  padding: 15px 15px 15px 15px;
+  margin: 10px 30px 10px 30px;
+  // font-family: "Work Sans", "Helvetica", "sans-serif";
+  // font-size: 14px;
+  // text-transform: uppercase;
+  // font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 32px;
   text-align: center;
   position: relative;
-  outline: none;
-  transition: background-color .1s ease;
-  cursor: pointer;
-  &::after {
-    transition: background-color .2s ease;
-    position: absolute;
-    // content: ''
-    height: 4px;
-    bottom: 0;
-    width: 100%;
-    background-color: darken(#A7604A, 50%);
-    opacity: .18;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    left: 0;
-  }
-  &:focus, &:hover {
-    text-decoration: none;
-    color: #fff;
-  }
-  &:hover {
-    background-color: lighten(#A7604A, 5%);
-    &::after {
-      opacity: .22;
-    }
-  }
-  &:active {
-    background-color: darken(#A7604A, 5%);
-    &::after {
-      opacity: .32;
-    }
-  }
+  // outline: none;
 }
-
-

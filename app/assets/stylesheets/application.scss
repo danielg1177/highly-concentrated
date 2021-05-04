@@ -11,3 +11,26 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+// .bg {
+  background-color: linear-gradient(180deg, rgba(255, 122, 0, 0) 0%, #FF5858 100%);
+  // filter: blur(100px);
+  // position: absolute;
+  height: 100%;
+  // width: 820px;
+  // height: 820px;
+  // left: 190px;
+  // top: 140px;
+// }
+
+  // .bg-inner {
+  //   background: linear-gradient(180deg, rgba(204, 203, 255, 0.4) 0%, rgba(0, 255, 240, 0.4) 100%);
+  //   filter: blur(50px);
+  //   position: absolute;
+  //   width: 145px;
+  //   height: 216px;
+  //   left: 77px;
+  //   top: 142px;
+  //   }
+}
