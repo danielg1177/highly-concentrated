@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  get 'pages/about_us', to: 'pages#about_us'
-  get 'pages/contact_us', to: 'pages#contact_us'
-  get 'pages/faq', to: 'pages#faq'
   get 'purchase_requests/seller_options', to: "purchase_requests#seller_options", as: 'seller_options'
   get 'purchase_requests/dashboard', to: "purchase_requests#dashboard", as: 'dashboard'
   get 'ganjas/edible', to: "ganjas#edible", as: 'ganja_edible'
