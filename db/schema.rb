@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_103624) do
     t.bigint "user_id", null: false
     t.bigint "ganja_id", null: false
     t.string "status"
-    t.string "pickup_time"
+    t.datetime "pickup_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ganja_id"], name: "index_purchase_requests_on_ganja_id"

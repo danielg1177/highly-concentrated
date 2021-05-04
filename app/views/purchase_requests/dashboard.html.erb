@@ -8,8 +8,8 @@
       <div class="product-details">
         <div class="product-details1">
           <div class="product-p">
-            <p>Name: <%= request.ganja.name %></p>
             <p>Strain: <%= request.ganja.strain %></p>
+            <p>Pickup Date: <%= request.pickup_time %></p>
             <p>Location: <%= request.ganja.pickup_local %></p>
           </div>
           <div>
@@ -38,6 +38,7 @@
             <div class="modal-content">
               <p>Strain: <%= request.ganja.strain %></p>
               <p>Description: <%= request.ganja.strain %></p>
+              <p>Pickup Date: <%= request.pickup_time %></p>
               <p>Location: <%= request.ganja.pickup_local %> </p>
               <p class="bold">Price: $<%= request.ganja.unit_price %></p>
             </div>
@@ -62,7 +63,7 @@
         <div class="product-details1">
           <div class="product-p">
             <p>Strain: <%= request.ganja.strain %></p>
-            <p>Pickup time: <%= request.pickup_time %> </p>
+            <p>Pickup Date: <%= request.pickup_time %> </p>
             <p>Location: <%= request.ganja.pickup_local %></p>
           </div>
           <div>
@@ -90,7 +91,7 @@
               <p>Strain: <%= request.ganja.strain %></p>
               <p>Description: <%= request.ganja.strain %></p>
               <p>Location: <%= request.ganja.pickup_local %> </p>
-              <p>Pickup time: <%= request.pickup_time %> </p>
+              <p>Pickup Date: <%= request.pickup_time %> </p>
               <p class="bold">Price: $<%= request.ganja.unit_price %></p>
             </div>
           </div>
