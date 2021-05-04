@@ -53,3 +53,19 @@
   border-radius: 32px;
   position: relative;
 }
+
+.btn-footer {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  &:focus, &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+  &:hover {
+    color: lighten(#6C5AC7, 5%);
+    &::after {
+      opacity: .22;
+    }
+  }
+}

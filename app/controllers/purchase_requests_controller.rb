@@ -1,4 +1,3 @@
-
 class PurchaseRequestsController < ApplicationController
   before_action :set_ganja, only: %i[new create]
 
@@ -13,7 +12,6 @@ class PurchaseRequestsController < ApplicationController
   def seller_options
     @purchase_requests = policy_scope(PurchaseRequest)
     authorize @purchase_requests
-
     @ganjas = Ganja.where(user: current_user)
   end
 
@@ -22,14 +20,13 @@ class PurchaseRequestsController < ApplicationController
     authorize @purchase_requests
   end
 
-
   def new
     @purchase_request = PurchaseRequest.new
+  end
 
   def new
     @purchase_request = PurchaseRequest.new
     authorize @purchase_request
-
   end
 
   def create
@@ -80,4 +77,5 @@ class PurchaseRequestsController < ApplicationController
   def purchase_request_params
     params.require(:purchase_request).permit(:user_id, :ganja_id, :status, :pickup_time)
   end
+end
 end
