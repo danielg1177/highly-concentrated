@@ -22,10 +22,6 @@ class PurchaseRequestsController < ApplicationController
     authorize @purchase_requests
   end
 
-
-  def new
-    @purchase_request = PurchaseRequest.new
-
   def new
     @purchase_request = PurchaseRequest.new
     authorize @purchase_request
@@ -39,15 +35,16 @@ class PurchaseRequestsController < ApplicationController
     if @purchase_request.save
       redirect_to ganja_path(@ganja)
 
-    authorize @purchase_request
-    @purchase_request.ganja = @ganja
-    @purchase_request.user = current_user
-    @purchase_request.status = 'pending'
-    if @purchase_request.save
-      flash[:notice] = "request created"
-      redirect_to dashboard_path
-    else
-      render :new
+      authorize @purchase_request
+      @purchase_request.ganja = @ganja
+      @purchase_request.user = current_user
+      @purchase_request.status = 'pending'
+      if @purchase_request.save
+        flash[:notice] = "request created"
+        redirect_to dashboard_path
+      else
+        render :new
+      end
     end
   end
 

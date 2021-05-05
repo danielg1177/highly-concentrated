@@ -16,18 +16,24 @@ User.destroy_all
 puts "Creating flower seeds"
 
 USERS = [
-  { email: "dg1@gmail.com", password: "123456"},
-  { email: "dg2@gmail.com", password: "123456"},
-  { email: "dg3@gmail.com", password: "123456"},
-  { email: "dg4@gmail.com", password: "123456"},
+  { email: "dg@gmail.com", password: "123456", first_name: "Daniel", last_name: "Gordon"},
+  { email: "sa@gmail.com", password: "123456", first_name: "Shane", last_name: "Artsy"},
+  { email: "hg@gmail.com", password: "123456", first_name: "Hugo", last_name: "Gurney"},
+  { email: "mm@gmail.com", password: "123456", first_name: "Moshe", last_name: "Maman"},
 ]
 USERS.each do |user_params|
   User.create!(user_params)
 end
 
+chat_arr = ["hey can i get some weed", "id like 10 grams", "can you hit me up with a dime", "can i get your sisters number?", "its the POLICE!", "what you think  youre a badass cause you sell weed?", "hey cutie ;)"]
+
+20.times do
+  Chat.create(content: chat_arr.sample, receiver: User.all.sample, sender: User.all.sample)
+end
+
 20.times do
   file = URI.open('https://images.unsplash.com/photo-1603909223429-69bb7101f420?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHdlZWR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
-  ganja = Ganja.new(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: Faker::Cannabis.health_benefit, unit_price: rand(10..100), variety: "flower", pickup_local: Faker::Nation.capital_city, user: User.all.sample)
+  ganja = Ganja.new(name: Faker::Cannabis.brand, strain: Faker::Cannabis.strain, description: Faker::Cannabis.health_benefit, unit_price: rand(10..100), variety: "flower", pickup_local: "#{Faker::Address.street_address}, New York", user: User.all.sample)
   ganja.photo.attach(io: file, filename: "nes.png", content_type: 'image/png')
   if ganja.save
     puts "saved"
