@@ -1,25 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<%= link_to "Flower", ganja_edible_path %>
-
-<h1>The Highly Concentrated</h1>
-<p>Can’t focus? <br>
-<h1 class="header-text">The Highly Concentrated</h1>
-<p class="body"> Can’t focus? <br>
+<div class="home">
+  <h1>The Highly Concentrated</h1>
+  <p>Can’t focus?</p><br>
+  <h1 class="header-text">The Highly Concentrated</h1>
+  <p class="body"> Can’t focus?</p> <br>
  Need to set your mind right? <br>
-Just reach out and get Highly Concentrated.</p>
+  Just reach out and get Highly Concentrated.</p>
 
-<div class="container mt-3 text-center">
-  <div>
-    <%= link_to 'Flowers', ganja_flower_path, class: "btn-flower" %>
+  <div class="container mt-3 text-center">
+    <div>
+      <%= link_to 'Flowers', ganja_flower_path, class: "btn-flower" %>
+    </div>
+    <br />
+    <div>
+      <%= link_to 'Edibles', ganja_edible_path, class: "btn-edible" %>
+    </div>
   </div>
-  <br />
-  <div>
-    <%= link_to 'Edibles', ganja_edible_path, class: "btn-edible" %>
-  </div>
+  <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
