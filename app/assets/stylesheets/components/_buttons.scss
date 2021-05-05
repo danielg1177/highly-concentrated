@@ -18,40 +18,64 @@
 }
 
 .btn-flower {
-  display: flex;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 400;
-  // text-transform: uppercase;
+   display: flex;
   background-color: #9EBA91;
+  color: #fff;
+  font-size: 22px;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 15px 0px 15px 0px;
-  margin: 10px 30px 10px 30px;
-  letter-spacing: 1px;
-  border-radius: 32px;
+  margin: 15px 60px 15px 60px;
+  border: 2.5px solid #000000;
   box-sizing: border-box;
-  position: relative;
+  border-radius: 32px;
+  // display: flex;
+  // border: none;
+  // color: #fff;
+  // font-size: 18px;
+  // font-weight: 400;
+  // // text-transform: uppercase;
+  // background-color: #9EBA91;
+  // align-items: center;
+  // justify-content: center;
+  // text-align: center;
+  // padding: 15px 0px 15px 0px;
+  // margin: 10px 30px 10px 30px;
+  // letter-spacing: 1px;
+  // border-radius: 32px;
+  // box-sizing: border-box;
+  // position: relative;
 }
 
 .btn-edible {
+  // display: flex;
+  // border: none;
+  // color: #fff;
+  // font-size: 18px;
+  // font-weight: 400;
+  // // text-transform: uppercase;
+  // background-color: #C36B56;
+  // align-items: center;
+  // justify-content: center;
+  // text-align: center;
+  // padding: 15px 0px 15px 0px;
+  // margin: 10px 30px 10px 30px;
+  // letter-spacing: 1px;
+  // border-radius: 32px;
+  // position: relative;
   display: flex;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 400;
-  // text-transform: uppercase;
   background-color: #C36B56;
+  color: #fff;
+  font-size: 22px;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 15px 0px 15px 0px;
-  margin: 10px 30px 10px 30px;
-  letter-spacing: 1px;
+  margin: 15px 60px 15px 60px;
+  border: 2.5px solid #000000;
+  box-sizing: border-box;
   border-radius: 32px;
-  position: relative;
 }
 
 .btn-footer {

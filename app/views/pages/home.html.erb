@@ -1,7 +1,11 @@
-<h1 class="header-text">Highly Concentrated</h1>
-<p class="body-text"> Can’t focus? <br>
- Need to set your mind right? <br>
+<div>
+<p class="body-text mt-3 ml-3">Can’t focus? <br>
+Need to set your mind right?<br>
 Just reach out and get Highly Concentrated.</p>
+  <div>
+        <%= image_tag "Saly-17.png", height: '113px', width: '200px' %>
+  </div>
+</div>
 
 <div class="container mt-3 text-center">
   <div>
@@ -13,6 +17,6 @@ Just reach out and get Highly Concentrated.</p>
   </div>
 </div>
 <div id="map"
-     style="width: 80%; height: 500px;"
+     style="width: 75%; height: 450px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
