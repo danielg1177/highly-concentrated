@@ -24,7 +24,7 @@
       <h3 class="no-messages"><%= "Start a chat with #{@sender.first_name}" %></h3>
     <% end %>
     <div class="bottom">
-      <%= simple_form_for ([@sender, @chat]), remote: true do |f| %>
+      <%= simple_form_for ([@sender, @chat]), remote: true, html: { autocomplete: 'off' } do |f| %>
         <%= f.input :content, label: false, class: "message-input" %>
         <%= f.button :submit, "Send", class: "message-send-btn" %>
       <% end %>

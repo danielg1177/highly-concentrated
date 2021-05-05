@@ -33,7 +33,8 @@ class PurchaseRequestsController < ApplicationController
     @purchase_request.status = 'pending'
     if @purchase_request.save
       flash[:notice] = "request created"
-      redirect_to dashboard_path
+      flash[:notice] = "Send a message to #{@ganja.user.first_name}"
+      redirect_to user_show_messages_path(@ganja.id)
     else
       render :new
     end
