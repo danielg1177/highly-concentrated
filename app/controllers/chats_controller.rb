@@ -1,16 +1,15 @@
-require 'pry'
-
 class ChatsController < ApplicationController
-
   def index
     @chats = policy_scope(Chat)
-    chats_unique = @chats.uniq { |chat| chat.sender || chat.receiver }
     @messaged_by = []
-    chats_unique.each do |chat|
-      if chat.receiver == current_user && chat.sender != current_user
-        @messaged_by << chat.sender
-      elsif chat.sender == current_user && chat.receiver != current_user
-        @messaged_by << chat.receiver
+    unless @chats.size.zero?
+      chats_unique = @chats.uniq { |chat| chat.sender || chat.receiver }
+      chats_unique.each do |chat|
+        if chat.receiver == current_user && chat.sender != current_user
+          @messaged_by << chat.sender
+        elsif chat.sender == current_user && chat.receiver != current_user
+          @messaged_by << chat.receiver
+        end
       end
     end
   end
