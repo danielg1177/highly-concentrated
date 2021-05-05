@@ -1,10 +1,10 @@
 <div class="product-cards home">
-    <div class="create">
+    <div class="create mt-3">
       <%= link_to "Add New Baggie",  new_ganja_path, class: "btn-create" %>
     </div>
   <div class="seller-options">
   <% if @purchase_requests.any? { |request| request.status == "pending" && request.ganja.user == current_user } %>
-    <h2 class="header-text">Pending Your Approval</h2>
+    <h2 class="header-text mb-3">Pending Your Approval</h2>
   <% end %>
   <% @purchase_requests.each do |request| %>
     <% if request.status == "pending" && request.ganja.user == current_user %>
@@ -62,7 +62,7 @@
     <% end %>
   <% end %>
   <% if @ganjas %>
-    <h2 class="header-text">My Available Ganja</h2>
+    <h2 class="header-text mt-3 mb-3">My Available Ganja</h2>
     <% @ganjas.each do |ganja| %>
       <div class="product-card" data-toggle="modal" data-target="#modal-<%= ganja.id %>">
         <div class="product-details">
@@ -111,7 +111,7 @@
     <% end %>
   <% end %>
   <% if @purchase_requests.any? { |request| request.status == "accepted" && request.ganja.user == current_user } %>
-    <h2 class="header-text">Deals You've Accepted</h2>
+    <h2 class="header-text mt-3 mb-3">Deals You've Accepted</h2>
   <% end %>
   <% @purchase_requests.each do |request| %>
     <% if request.status == "accepted" && request.ganja.user == current_user %>
@@ -167,7 +167,7 @@
     <% end %>
   <% end %>
   <% if @purchase_requests.any? { |request| request.status == "declined" && request.ganja.user == current_user } %>
-    <h2 class="header-text">Deals You've Declined</h2>
+    <h2 class="header-text mt-3 mb-3">Deals You've Declined</h2>
   <% end %>
   <% @purchase_requests.each do |request| %>
     <% if request.status == "declined" && request.ganja.user == current_user %>
