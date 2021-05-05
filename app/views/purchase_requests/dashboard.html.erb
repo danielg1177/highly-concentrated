@@ -1,6 +1,6 @@
 <div class="product-cards home">
   <% if @purchase_requests.any? { |request| request.status == "pending" && request.user == current_user } %>
-    <h2 class="header-text">My Pending Requests</h2>
+    <h2 class="header-text mt-5 mb-2">My Pending Requests</h2>
   <% end %>
   <% @purchase_requests.each do |request| %>
     <% if request.status == "pending" && request.user == current_user %>
@@ -55,7 +55,7 @@
     <% end %>
   <% end %>
   <% if @purchase_requests.any? { |request| request.status == "accepted" && request.user == current_user } %>
-    <h2 class="header-text">Requests Accepted</h2>
+    <h2 class="header-text mt-2 mb-2">Requests Accepted</h2>
   <% end %>
   <% @purchase_requests.each do |request| %>
     <% if request.status == "accepted" && request.user == current_user %>
@@ -108,7 +108,7 @@
     <% end %>
   <% end %>
   <% if @purchase_requests.any? { |request| request.status == "declined" && request.user == current_user } %>
-    <h2 class="header-text">Request Declined</h2>
+    <h2 class="header-text mt-2 mb-2">Request Declined</h2>
   <% end %>
   <% @purchase_requests.each do |request| %>
     <% if request.status == "declined" && request.user == current_user %>

@@ -1,33 +1,46 @@
-.header-text {
-font-family: $WalsheimProBold;
+.header {
+font-family: $YoungSerif;
 font-style: Bold;
-font-size: 26px;
-color: white;
+font-size: 30px;
+color: #3B3B3B;
 // line-height: 20px;
 // line-height: 67%;
 // align: Center;
 // vertical-align: Top;
 opacity: 100%;
 margin-left: 5px;
-text-shadow:
-    -1px -1px 0 #3B3B3B,
-     0   -1px 0 #3B3B3B,
-     1px -1px 0 #3B3B3B,
-     1px  0   0 #3B3B3B,
-     1px  1px 0 #3B3B3B,
-     0    1px 0 #3B3B3B,
-    -1px  1px 0 #3B3B3B,
-    -1px  0   0 #3B3B3B;
+}
+
+.header-text {
+font-family: $WalsheimProBold;
+font-style: Bold;
+font-size: 22px;
+color: #484654;
+// line-height: 20px;
+// line-height: 67%;
+// align: Center;
+// vertical-align: Top;
+opacity: 100%;
+margin-left: 5px;
+// text-shadow:
+//     -1px -1px 0 #3B3B3B,
+//      0   -1px 0 #3B3B3B,
+//      1px -1px 0 #3B3B3B,
+//      1px  0   0 #3B3B3B,
+//      1px  1px 0 #3B3B3B,
+//      0    1px 0 #3B3B3B,
+//     -1px  1px 0 #3B3B3B,
+//     -1px  0   0 #3B3B3B;
 }
 
 .body-text {
 font-family: $YoungSerif;
 font-style: normal;
-font-weight: 500;
-font-size: 16px;
+font-weight: 400;
+font-size: 18px;
 line-height: 19px;
 margin-left: 5px;
-color: #E28251;
+color: #C36B56;
 // line-height: 20px;
 // line-height: 67%;
 // align: Center;
