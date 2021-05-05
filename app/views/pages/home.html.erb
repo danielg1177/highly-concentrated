@@ -1,3 +1,4 @@
+<div class="home">
 <div>
 <p class="body-text mt-3 ml-3">Can’t focus? <br>
 Need to set your mind right?<br>
@@ -7,16 +8,17 @@ Just reach out and get Highly Concentrated.</p>
   </div>
 </div>
 
-<div class="container mt-3 text-center">
-  <div>
-    <%= link_to 'Flowers', ganja_flower_path, class: "btn-flower" %>
+  <div class="container mt-3 text-center">
+    <div>
+      <%= link_to 'Flowers', ganja_flower_path, class: "btn-flower" %>
+    </div>
+    <br />
+    <div>
+      <%= link_to 'Edibles', ganja_edible_path, class: "btn-edible" %>
+    </div>
   </div>
-  <br />
-  <div>
-    <%= link_to 'Edibles', ganja_edible_path, class: "btn-edible" %>
-  </div>
-</div>
-<div id="map"
+  <div id="map"
      style="width: 75%; height: 450px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>

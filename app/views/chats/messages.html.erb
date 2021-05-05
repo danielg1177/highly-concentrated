@@ -1,0 +1,33 @@
+<% other = "" %>
+
+<div class="message-board">
+  <div class="messages-h3">
+    <%= link_to "Back", messages_path, class: "z" %>
+    <h2><%= @sender.first_name %></h2>
+    <div class="take-space"></div>
+  </div>
+  <div class="more-margin">
+    <% if @chats.size != 0 %>
+      <% @chats.each do |chat| %>
+       <% if chat.receiver == current_user %>
+          <div class="receiver message" id="chat-<%= chat.id %>">
+            <h4><%= chat.content %></h4>
+          </div>
+        <% end %>
+        <% if chat.receiver != current_user %>
+          <div class="sender message" id="chat-<%= chat.id %>">
+            <h4><%= chat.content %></h4>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h3 class="no-messages"><%= "Start a chat with #{@sender.first_name}" %></h3>
+    <% end %>
+    <div class="bottom">
+      <%= simple_form_for ([@sender, @chat]), remote: true do |f| %>
+        <%= f.input :content, label: false, class: "message-input" %>
+        <%= f.button :submit, "Send", class: "message-send-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="product-cards">
+<div class="product-cards home">
   <% ganjas.each do |ganja| %>
     <div class="product-card" data-toggle="modal" data-target="#modal-<%= ganja.id %>">
       <div class="product-details">
@@ -33,10 +33,12 @@
               <p>Strain: <%= ganja.strain %></p>
               <p>Description: <%= ganja.strain %></p>
               <p>Location: <%= ganja.pickup_local %> </p>
+              <p>Seller: <%= ganja.user.first_name %> </p>
               <p class="bold">Price: $<%= ganja.unit_price %></p>
             </div>
           </div>
           <div class="modal-footer">
+            <%= link_to "Message", user_show_messages_path(ganja.user) %>
             <%= link_to "Request", new_ganja_purchase_request_path(ganja) %>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>

@@ -3,6 +3,12 @@
   background: white;
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -13,4 +19,8 @@
 
 .avatar {
   cursor: pointer;
+}
+
+.dropdown-menu {
+  z-index: 10;
 }
