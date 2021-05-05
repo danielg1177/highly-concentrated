@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'pages/about_us', to: 'pages#about_us'
-  get 'pages/contact_us', to: 'pages#contact_us'
   get 'pages/faq', to: 'pages#faq'
   resources :users do
     get 'chats/messages', to: "chats#messages", as: 'show_messages'

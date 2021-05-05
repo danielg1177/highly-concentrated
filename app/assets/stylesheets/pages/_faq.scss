@@ -2,29 +2,52 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .faq-banner {
-
+  padding-top: 20px;
+  background-color:   #F0F0F0;
 }
 
 .faq-header {
-
+  font-family: $WalsheimProBold;
+  font-style: Bold;
+  font-size: 40px;
+  color: black;
+  padding-bottom: 15px;
+  text-align: center;
 }
 
 .faq-container {
-
+  float:left;
+  padding-left: 20px;
+  padding-top: 15px;
+  border-top: 10px solid #E8E8E8;
+  padding-bottom: 15px;
+  vertical-align: middle;
 }
 
-.faq-content {
-
+.question-container {
+  border-bottom: 1px solid #dadada;
+  padding-top: 5px;
 }
 
 .question {
+  font-family: "Work Sans";
+  font-size: 20px;
+  color: #545454
+}
 
+.answer-container {
+  padding-top: 10px;
 }
 
 .answer {
+  font-family: "Work Sans";
+  font-size: 20px;
+  color: #b6b6b6
+}
 
+#faq-container-bottom {
+  border-bottom: 4px solid #E8E8E8;
 }
