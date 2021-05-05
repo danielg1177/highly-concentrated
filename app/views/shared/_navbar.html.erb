@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon z">
   <div>
     <%= link_to root_path do %>
       <%= image_tag "THC_favicon.png", height: '40px', width: '40px' %>
@@ -11,8 +11,9 @@
       <%= link_to "Home", root_path, class: "dropdown-item" %>
     <% if user_signed_in? %>
       <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-      <%= link_to "Seller Options", seller_options_path, class: "dropdown-item" %>
+      <%= link_to "Dealer", seller_options_path, class: "dropdown-item" %>
       <%= link_to "Sign Out", destroy_user_session_path(current_user), method: :delete, class: "dropdown-item" %>
+      <%= link_to "Messages", messages_path, class: "dropdown-item" %>
     <% else %>
       <%= link_to "Sign In", new_user_session_path, class: "dropdown-item" %>
     <% end %>

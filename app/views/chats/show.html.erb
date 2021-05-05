@@ -1,0 +1,14 @@
+<div class="message-board">
+  <% @chats.each do |message| %>
+    <% if message.receiver == current_user %>
+      <div class="receiver message">
+        <h4><%= message.content %></h4>
+      </div>
+    <% end %>
+    <% if message.sender == current_user %>
+      <div class="sender message">
+        <h4><%= message.content %></h4>
+      </div>
+    <% end %>
+  <% end %>
+</div>

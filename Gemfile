@@ -36,6 +36,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'pundit'
+gem 'turbolinks_render'
 
 group :development, :test do
   gem 'pry-byebug'
