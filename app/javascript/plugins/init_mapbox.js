@@ -22,10 +22,10 @@ const initMapbox = () => {
     // Create a HTML element for your custom marker
       const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundImage = `url('https://www.pngegg.com/en/png-sjpwu')`;
+      element.style.backgroundImage = `url('https://www.flaticon.com/svg/vstatic/svg/188/188418.svg?token=exp=1620211835~hmac=70165ccdacdecfa0ae58e7476d1a32bb')`;
       element.style.backgroundSize = 'contain';
       element.style.width = '20px';
-      element.style.height = '1px';
+      element.style.height = '10px';
     // Pass the element as an argument to the new marker
     new mapboxgl.Marker(element)
       .setLngLat([marker.lng, marker.lat])
