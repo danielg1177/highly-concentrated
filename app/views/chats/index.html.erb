@@ -6,7 +6,6 @@
     <h3 class="no-messages">You have no Messages</h3>
   <% else %>
     <div class="more-margin2">
-      <h2>here</h2>
       <% @messaged_by.each do |user| %>
         <%= link_to user_show_messages_path(user.id) do %>
           <div class="user-messages">
