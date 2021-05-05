@@ -1,5 +1,3 @@
-require 'pry'
-
 class ChatsController < ApplicationController
   def index
     @chats = policy_scope(Chat)
