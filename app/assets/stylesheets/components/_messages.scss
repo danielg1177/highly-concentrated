@@ -1,9 +1,11 @@
 .sender h4 {
   background: green;
+  margin-right: 10px;
 }
 
-.receiver {
+.sender {
   text-align: right;
+  margin-left: 10px;
 }
 
 .receiver h4 {
@@ -15,9 +17,125 @@
   display: inline;
   padding: 7px;
   border-radius: 10px;
+  max-width: 48%;
 }
 
 .message {
-  margin: 10px;
+  margin: 0;
   padding: 10px;
+  width: 100vw;
 }
+
+.no-messages {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.z {
+  z-index: 100;
+}
+.messages-container{
+  background-image: linear-gradient(120deg, #00ff15, green);
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.messages-h2 {
+  background-image: linear-gradient(0deg, #00ff15, green);
+  height: 70px;
+  padding: 40px 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 56px;
+  z-index: 1;
+}
+
+.more-margin {
+  padding-top: 160px;
+  position: absolute;
+  top: -60px;
+}
+
+.more-margin2 {
+  padding-top: 160px;
+  position: absolute;
+  width: 100%;
+}
+
+.messages-h3 {
+  background-image: linear-gradient(0deg, #00ff15, green);
+  height: 70px;
+  padding: 40px 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.take-space {
+  width: 38px;
+}
+
+.messages-h2 h2 {
+  margin: 0;
+}
+
+.message-board {
+  background-image: linear-gradient(120deg, #00ff15, green);
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 56px;
+}
+
+.bottom form {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.message-send-btn {
+  width: 70px;
+  height: 38px;
+  padding: 5px;
+  background: white;
+}
+
+.message-input {
+  width: 80%;
+  margin: auto 0;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-messages {
+  width: 95%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  box-shadow: 1px 1px 2px rgba(40,40,40,.2);
+  border-radius: 4px;
+  margin: 10px;
+  background: white;
+}
+
+.user-messages h3 {
+  color: black;
+  margin-left: 8px;
+}
+
+.user-messages h3:hover {
+  text-decoration: none;
+  color: black;
+}
+

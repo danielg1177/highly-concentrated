@@ -5,15 +5,19 @@ class ChatPolicy < ApplicationPolicy
     end
   end
 
-  def index
+  def index?
     true if user
   end
 
-  def new
+  def ne?
     true if user
   end
 
-  def create
+  def create?
+    true if user
+  end
+
+  def messages?
     true if user
   end
 end

@@ -47,6 +47,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <div>
+              <%= link_to "Message", user_show_messages_path(request.ganja.user) %>
               <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
               <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
             </div>
@@ -101,7 +102,9 @@
             </div>
           </div>
           <div class="modal-footer">
-            <div></div>
+            <div>
+              <%= link_to "Message", new_ganja_chat_path(request.ganja) %>
+            </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -156,7 +159,9 @@
             </div>
           </div>
           <div class="modal-footer">
-            <div></div>
+            <div>
+              <%= link_to "Message", user_show_messages_path(request.ganja.user) %>
+            </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -210,7 +215,9 @@
             </div>
           </div>
           <div class="modal-footer">
-            <div></div>
+            <div>
+              <%= link_to "Message", user_show_messages_path(request.ganja.user) %>
+            </div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>

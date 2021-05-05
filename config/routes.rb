@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
+  resources :users do
+    get 'chats/messages', to: "chats#messages", as: 'show_messages'
+    resources :chats, only: %i[create]
+  end
   get 'purchase_requests/seller_options', to: "purchase_requests#seller_options", as: 'seller_options'
   get 'purchase_requests/dashboard', to: "purchase_requests#dashboard", as: 'dashboard'
   get 'ganjas/edible', to: "ganjas#edible", as: 'ganja_edible'
@@ -11,7 +14,6 @@ Rails.application.routes.draw do
 
   resources :ganjas do
     resources :purchase_requests, only: %i[new create]
-    resources :chats, only: %i[new create]
   end
   resources :purchase_requests, except: %i[new create] do
     patch :accept

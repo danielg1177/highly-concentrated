@@ -16,17 +16,19 @@ User.destroy_all
 puts "Creating flower seeds"
 
 USERS = [
-  { email: "dg1@gmail.com", password: "123456"},
-  { email: "dg2@gmail.com", password: "123456"},
-  { email: "dg3@gmail.com", password: "123456"},
-  { email: "dg4@gmail.com", password: "123456"},
+  { email: "dg@gmail.com", password: "123456", first_name: "Daniel", last_name: "Gordon"},
+  { email: "sa@gmail.com", password: "123456", first_name: "Shane", last_name: "Artsy"},
+  { email: "hg@gmail.com", password: "123456", first_name: "Hugo", last_name: "Gurney"},
+  { email: "mm@gmail.com", password: "123456", first_name: "Moshe", last_name: "Maman"},
 ]
 USERS.each do |user_params|
   User.create!(user_params)
 end
 
+chat_arr = ["hey can i get some weed", "id like 10 grams", "can you hit me up with a dime", "can i get your sisters number?", "its the POLICE!", "what you think  youre a badass cause you sell weed?", "hey cutie ;)"]
+
 20.times do
-  Chat.create(content: "great day", receiver: User.all.sample, sender: User.all.sample)
+  Chat.create(content: chat_arr.sample, receiver: User.all.sample, sender: User.all.sample)
 end
 
 20.times do
