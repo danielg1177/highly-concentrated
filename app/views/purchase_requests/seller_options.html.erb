@@ -1,7 +1,10 @@
 <div class="product-cards home">
+    <div class="create">
+      <%= link_to "Add New Baggie",  new_ganja_path, class: "btn-create" %>
+    </div>
   <div class="seller-options">
   <% if @purchase_requests.any? { |request| request.status == "pending" && request.ganja.user == current_user } %>
-    <h2>Pending Your Approval</h2>
+    <h2 class="header-text">Pending Your Approval</h2>
   <% end %>
   <% @purchase_requests.each do |request| %>
     <% if request.status == "pending" && request.ganja.user == current_user %>
@@ -58,13 +61,8 @@
       </div>
     <% end %>
   <% end %>
-
   <% if @ganjas %>
     <h2 class="header-text">My Available Ganja</h2>
-    <div class="create">
-      <%= link_to "Create",  new_ganja_path, class: 'text-primary' %>
-    </div>
-
     <% @ganjas.each do |ganja| %>
       <div class="product-card" data-toggle="modal" data-target="#modal-<%= ganja.id %>">
         <div class="product-details">
@@ -112,11 +110,9 @@
       </div>
     <% end %>
   <% end %>
-
   <% if @purchase_requests.any? { |request| request.status == "accepted" && request.ganja.user == current_user } %>
-    <h2>Deals You've Accepted</h2>
+    <h2 class="header-text">Deals You've Accepted</h2>
   <% end %>
-
   <% @purchase_requests.each do |request| %>
     <% if request.status == "accepted" && request.ganja.user == current_user %>
       <div class="product-card" data-toggle="modal" data-target="#modal-<%= request.id %>">
@@ -170,11 +166,9 @@
       </div>
     <% end %>
   <% end %>
-
   <% if @purchase_requests.any? { |request| request.status == "declined" && request.ganja.user == current_user } %>
-    <h2>Deals You've Declined</h2>
+    <h2 class="header-text">Deals You've Declined</h2>
   <% end %>
-
   <% @purchase_requests.each do |request| %>
     <% if request.status == "declined" && request.ganja.user == current_user %>
       <div class="product-card" data-toggle="modal" data-target="#modal-<%= request.id %>">
