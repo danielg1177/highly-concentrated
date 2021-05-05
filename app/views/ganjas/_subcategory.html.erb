@@ -1,50 +1,52 @@
 <div class="product-cards home">
   <% ganjas.each do |ganja| %>
-    <div class="product-card" data-toggle="modal" data-target="#modal-<%= ganja.id %>">
-      <div class="product-details">
-        <div class="product-details1">
-          <div class="product-p">
-            <p>Name: <%= ganja.name %></p>
-            <p>Strain: <%= ganja.strain %></p>
-            <p>Location: <%= ganja.pickup_local %></p>
-          </div>
-          <div>
-            <p class="bold">Price: $<%= ganja.unit_price %></p>
-          </div>
-        </div>
-        <div class="product-details2">
-          <% if ganja.photo.attached? %>
-            <%= cl_image_tag(ganja.photo.key, crop: :fill, height: 100, class: "product-img") %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="modal-<%= ganja.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><%= ganja.name %></h5>
-          </div>
-          <div class="modal-body">
-            <% if ganja.photo.attached? %>
-              <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 380, height: 200) %>
-            <% end %>
-            <div class="modal-content">
+    <% if ganja.user != current_user %>
+      <div class="product-card" data-toggle="modal" data-target="#modal-<%= ganja.id %>">
+        <div class="product-details">
+          <div class="product-details1">
+            <div class="product-p">
+              <p>Name: <%= ganja.name %></p>
               <p>Strain: <%= ganja.strain %></p>
-              <p>Description: <%= ganja.strain %></p>
-              <p>Location: <%= ganja.pickup_local %> </p>
-              <p>Seller: <%= ganja.user.first_name %> </p>
+              <p>Location: <%= ganja.pickup_local %></p>
+            </div>
+            <div>
               <p class="bold">Price: $<%= ganja.unit_price %></p>
             </div>
           </div>
-          <div class="modal-footer">
-            <%= link_to "Message", user_show_messages_path(ganja.user) %>
-            <%= link_to "Request", new_ganja_purchase_request_path(ganja) %>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <div class="product-details2">
+            <% if ganja.photo.attached? %>
+              <%= cl_image_tag(ganja.photo.key, crop: :fill, height: 100, class: "product-img") %>
+            <% end %>
           </div>
         </div>
       </div>
-    </div>
+      <div class="modal fade" id="modal-<%= ganja.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><%= ganja.name %></h5>
+            </div>
+            <div class="modal-body">
+              <% if ganja.photo.attached? %>
+                <%= cl_image_tag(ganja.photo.key, crop: :fill, width: 380, height: 200) %>
+              <% end %>
+              <div class="modal-content">
+                <p>Strain: <%= ganja.strain %></p>
+                <p>Description: <%= ganja.strain %></p>
+                <p>Location: <%= ganja.pickup_local %> </p>
+                <p>Seller: <%= ganja.user.first_name %> </p>
+                <p class="bold">Price: $<%= ganja.unit_price %></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <%= link_to "Message", user_show_messages_path(ganja.user) %>
+              <%= link_to "Request", new_ganja_purchase_request_path(ganja) %>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
