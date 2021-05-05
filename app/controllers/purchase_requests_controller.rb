@@ -22,10 +22,6 @@ class PurchaseRequestsController < ApplicationController
 
   def new
     @purchase_request = PurchaseRequest.new
-  end
-
-  def new
-    @purchase_request = PurchaseRequest.new
     authorize @purchase_request
   end
 
@@ -45,6 +41,7 @@ class PurchaseRequestsController < ApplicationController
       redirect_to dashboard_path
     else
       render :new
+      end
     end
   end
 
@@ -77,5 +74,4 @@ class PurchaseRequestsController < ApplicationController
   def purchase_request_params
     params.require(:purchase_request).permit(:user_id, :ganja_id, :status, :pickup_time)
   end
-end
 end
