@@ -48,6 +48,15 @@ color: #C36B56;
 opacity: 100%;
 }
 
+.subcontainer-content {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 0.5rem;
+}
+
 .home {
   padding-top: 90px;
 }
