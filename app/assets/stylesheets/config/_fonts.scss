@@ -14,20 +14,25 @@ $headers-font: "Roboto", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
-@import url('https://cdn.rawgit.com/mfd/7c7a915eb31474cc8c6a65066a4c4dc3/raw/f0f2fb94c21dea904812a53e0eb6cf0bc87f3754/GTWalsheimPro.css');
 
-$WalsheimProReg: "GT Walsheim Pro Bold";
+$WalsheimProReg: "GT Walsheim Pro Regular";
 @font-face {
   font-family: $WalsheimProReg;
-  src: local("GT Walsheim Pro Regular"),local("GTWalsheimProRegular"),url(GTWalsheimProRegular.woff2) format("woff2"),url(GTWalsheimProRegular.woff) format("woff"),url(GTWalsheimProRegular.ttf) format("truetype");
-  font-weight: 400;
-  font-style: normal
+  src: local('GTWalsheimPro-Regular.woff2') format('woff2')
+ // font-style: normal
 }
+
 
 $WalsheimProBold: "GT Walsheim Pro Bold";
 @font-face {
   font-family: $WalsheimProBold;
-  src: local("GT Walsheim Pro Bold"),local("GTWalsheimProBold"),url(GTWalsheimProBold.woff2) format("woff2"),url(GTWalsheimProBold.woff) format("woff"),url(GTWalsheimProBold.ttf) format("truetype");
-  font-weight: 700;
-  font-style: normal
+  src: local('GTWalsheimPro-Bold.woff') format('woff2')
+  // font-style: normal
+}
+
+$YoungSerif: "YoungSerif-Regular";
+@font-face {
+  font-family: $YoungSerif;
+  src: local('YoungSerif-Regular.woff2') format('woff2')
+  // font-style: normal
 }

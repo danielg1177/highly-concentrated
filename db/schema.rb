@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_045218) do
   end
 
   create_table "chats", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.bigint "receiver_id"
     t.bigint "sender_id"
     t.datetime "created_at", precision: 6, null: false
@@ -59,11 +59,6 @@ ActiveRecord::Schema.define(version: 2021_05_05_045218) do
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_ganjas_on_user_id"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "purchase_requests", force: :cascade do |t|

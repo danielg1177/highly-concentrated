@@ -1,4 +1,3 @@
-
 class PurchaseRequestsController < ApplicationController
   before_action :set_ganja, only: %i[new create]
 
@@ -13,7 +12,6 @@ class PurchaseRequestsController < ApplicationController
   def seller_options
     @purchase_requests = policy_scope(PurchaseRequest)
     authorize @purchase_requests
-
     @ganjas = Ganja.where(user: current_user)
   end
 
@@ -25,26 +23,20 @@ class PurchaseRequestsController < ApplicationController
   def new
     @purchase_request = PurchaseRequest.new
     authorize @purchase_request
-
   end
 
   def create
     @purchase_request = PurchaseRequest.new(purchase_request_params)
+    authorize @purchase_request
     @purchase_request.ganja = @ganja
-    purchase_request.status = 'pending'
+    @purchase_request.user = current_user
+    @purchase_request.status = 'pending'
     if @purchase_request.save
-      redirect_to ganja_path(@ganja)
-
-      authorize @purchase_request
-      @purchase_request.ganja = @ganja
-      @purchase_request.user = current_user
-      @purchase_request.status = 'pending'
-      if @purchase_request.save
-        flash[:notice] = "request created"
-        redirect_to dashboard_path
-      else
-        render :new
-      end
+      flash[:notice] = "request created"
+      flash[:notice] = "Send a message to #{@ganja.user.first_name}"
+      redirect_to user_show_messages_path(@ganja.id)
+    else
+      render :new
     end
   end
 

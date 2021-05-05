@@ -2,102 +2,80 @@
   text-align: center;
 }
 
-.btn-flower {
-  display: inline-block;
-  border: none;
+.btn-create {
+  display: flex;
+  background-color: #55B15B;
   color: #fff;
-  text-decoration: none;
-  background-color: #9EBA91;
-  padding: 15px 45px;
-  font-family: "Work Sans", "Helvetica", "sans-serif";
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 3px;
-  border-radius: 8px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  position: relative;
-  outline: none;
-  transition: background-color .1s ease;
-  cursor: pointer;
-  &::after {
-    transition: background-color .2s ease;
-    position: absolute;
-    // content: ''
-    height: 4px;
-    bottom: 0;
-    width: 100%;
-    background-color: darken(#9EBA91, 50%);
-    opacity: .18;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    left: 0;
-  }
-  &:focus, &:hover {
-    text-decoration: none;
-    color: #fff;
-  }
-  &:hover {
-    background-color: lighten(#9EBA91, 5%);
-    &::after {
-      opacity: .22;
-    }
-  }
-  &:active {
-    background-color: darken(#9EBA91, 5%);
-    &::after {
-      opacity: .32;
-    }
-  }
+  padding: 10px 40px;
+  margin: 20px 0px;
+  // border: 2.5px solid #000000;
+  // box-sizing: border-box;
+  border-radius: 24px;
+}
+
+.btn-flower {
+   display: flex;
+  background-color: #9EBA91;
+  color: #fff;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px 0px 15px 0px;
+  margin: 15px 60px 15px 60px;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 32px;
+  // display: flex;
+  // border: none;
+  // color: #fff;
+  // font-size: 18px;
+  // font-weight: 400;
+  // // text-transform: uppercase;
+  // background-color: #9EBA91;
+  // align-items: center;
+  // justify-content: center;
+  // text-align: center;
+  // padding: 15px 0px 15px 0px;
+  // margin: 10px 30px 10px 30px;
+  // letter-spacing: 1px;
+  // border-radius: 32px;
+  // box-sizing: border-box;
+  // position: relative;
 }
 
 .btn-edible {
-    display: inline-block;
-    border: none;
-    color: #fff;
-    text-decoration: none;
-    background-color: #A7604A;
-    padding: 15px 45px;
-    font-family: "Work Sans", "Helvetica", "sans-serif";
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 3px;
-    border-radius: 8px;
-    text-align: center;
-    position: relative;
-    outline: none;
-    transition: background-color .1s ease;
-    cursor: pointer;
-    &::after {
-    transition: background-color .2s ease;
-    position: absolute;
-    // content: ''
-    height: 4px;
-    bottom: 0;
-    width: 100%;
-    background-color: darken(#A7604A, 50%);
-    opacity: .18;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    left: 0;
-  }
-  &:focus, &:hover {
-    text-decoration: none;
-    color: #fff;
-  }
-  &:hover {
-    background-color: lighten(#A7604A, 5%);
-    &::after {
-      opacity: .22;
-    }
-  }
-  &:active {
-    background-color: darken(#A7604A, 5%);
-    &::after {
-      opacity: .32;
-    }
-  }
+  // display: flex;
+  // border: none;
+  // color: #fff;
+  // font-size: 18px;
+  // font-weight: 400;
+  // // text-transform: uppercase;
+  // background-color: #C36B56;
+  // align-items: center;
+  // justify-content: center;
+  // text-align: center;
+  // padding: 15px 0px 15px 0px;
+  // margin: 10px 30px 10px 30px;
+  // letter-spacing: 1px;
+  // border-radius: 32px;
+  // position: relative;
+  display: flex;
+  background-color: #484654;
+  color: #fff;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px 0px 15px 0px;
+  margin: 15px 60px 15px 60px;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 32px;
 }
 
 .btn-footer {
@@ -115,9 +93,3 @@
     }
   }
 }
-// width: 123px;
-// height: 40px;
-
-// border: 1px solid #000000;
-// box-sizing: border-box;
-// border-radius: 8px;

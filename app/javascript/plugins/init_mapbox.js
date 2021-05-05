@@ -22,7 +22,7 @@ const initMapbox = () => {
     // Create a HTML element for your custom marker
       const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundImage = `url('https://e7.pngegg.com/pngimages/499/98/png-clipart-cannabis-weed-golf-club-readygolf-marijuana-pot-leaf-ball-marker-hat-clip-bud-cannabis-leaf-black-backpack-leaf-hemp-family.png')`;
+      element.style.backgroundImage = `url('https://www.flaticon.com/svg/vstatic/svg/188/188418.svg?token=exp=1620211835~hmac=70165ccdacdecfa0ae58e7476d1a32bb')`;
       element.style.backgroundSize = 'contain';
       element.style.width = '20px';
       element.style.height = '10px';

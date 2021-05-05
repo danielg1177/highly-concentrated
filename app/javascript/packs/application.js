@@ -24,10 +24,14 @@ require("channels")
 
 // External imports
 import "bootstrap";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 
 // Internal imports, e.g:
+
 import { initMapbox } from '../plugins/init_mapbox';
+// import { initCarousel } from '../components/carousel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
