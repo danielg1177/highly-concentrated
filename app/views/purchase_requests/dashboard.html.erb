@@ -33,7 +33,7 @@
             </div>
             <div class="modal-body">
               <% if request.ganja.photo.attached? %>
-                <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 380, height: 200) %>
+                <%= cl_image_tag(request.ganja.photo.key, crop: :fill, width: 362, height: 200) %>
               <% end %>
               <div class="modal-content">
                 <p>Strain: <%= request.ganja.strain %></p>
