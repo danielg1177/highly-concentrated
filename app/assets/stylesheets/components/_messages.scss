@@ -15,7 +15,7 @@
 .message h4 {
   color: white;
   display: inline;
-  padding: 7px;
+  padding: 9px;
   border-radius: 10px;
   max-width: 48%;
 }
@@ -35,7 +35,7 @@
   z-index: 100;
 }
 .messages-container{
-  background-image: linear-gradient(120deg, #00ff15, green);
+  background-image: linear-gradient(135deg, rgba(255, 122, 0, 0) 0%, #EBC7B8 100%);
   width: 100vw;
   height: 100%;
   min-height: 100vh;
@@ -107,8 +107,7 @@
 }
 
 .message-input {
-  width: 80%;
-  margin: auto 0;
+  width: 85%;
   height: 38px;
 }
 
