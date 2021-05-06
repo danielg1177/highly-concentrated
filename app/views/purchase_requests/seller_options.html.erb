@@ -50,10 +50,9 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <div>
-                <%= link_to "Message", user_show_messages_path(request.user) %>
-                <%= link_to "Decline", purchase_request_decline_path(request), method: :patch %>
-                <%= link_to "Accept", purchase_request_accept_path(request), method: :patch %>
+              <button type="button" class="btn btn-warning"><%= link_to 'Message', user_show_messages_path(request.user), class: "btn-modal" %></button>
+              <button type="button" class="btn btn-danger"><%= link_to 'Decline', purchase_request_decline_path(request), class: "btn-modal", method: :patch %></button>
+              <button type="button" class="btn btn-success"><%= link_to 'Accept', purchase_request_accept_path(request), class: "btn-modal", method: :patch %></button>
               </div>
             </div>
           </div>
@@ -157,7 +156,7 @@
             </div>
             <div class="modal-footer">
               <div>
-                <%= link_to "Message", user_show_messages_path(request.user) %>
+                <button type="button" class="btn btn-warning"><%= link_to "Message", user_show_messages_path(request.user), class: "btn-modal" %></button>
               </div>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -211,8 +210,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <div>
-                <%= link_to "Message", user_show_messages_path(request.user) %>
+               <div>
+                <button type="button" class="btn btn-warning"><%= link_to "Message", user_show_messages_path(request.user), class: "btn-modal" %></button>
               </div>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
