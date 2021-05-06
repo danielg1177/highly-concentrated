@@ -1,6 +1,6 @@
 <div class="product-cards home">
   <% if @purchase_requests.any? { |request| request.status == "pending" && request.user == current_user } %>
-    <h2 class="header-text mt-5 mb-2">My Pending Requests</h2>
+    <h2 class="header-text mt-2 mb-2">My Pending Requests</h2>
   <% end %>
   <% @purchase_requests.each do |request| %>
     <% if request.status == "pending" && request.user == current_user %>
