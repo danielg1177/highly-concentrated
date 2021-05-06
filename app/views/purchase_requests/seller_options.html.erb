@@ -100,9 +100,9 @@
               </div>
             </div>
             <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <div>
               </div>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -155,10 +155,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <div>
-                <button type="button" class="btn btn-warning"><%= link_to "Message", user_show_messages_path(request.user), class: "btn-modal" %></button>
-              </div>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-warning"><%= link_to "Message", user_show_messages_path(request.user), class: "btn-modal" %></button>
             </div>
           </div>
         </div>
@@ -210,10 +208,8 @@
               </div>
             </div>
             <div class="modal-footer">
-               <div>
-                <button type="button" class="btn btn-warning"><%= link_to "Message", user_show_messages_path(request.user), class: "btn-modal" %></button>
-              </div>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-warning"><%= link_to "Message", user_show_messages_path(request.user), class: "btn-modal" %></button>
             </div>
           </div>
         </div>

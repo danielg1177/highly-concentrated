@@ -39,9 +39,9 @@
               </div>
             </div>
             <div class="modal-footer">
-              <%= link_to "Message", user_show_messages_path(ganja.user) %>
-              <%= link_to "Request", new_ganja_purchase_request_path(ganja) %>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= link_to "Message", user_show_messages_path(ganja.user), class: "btn btn-warning btn-modal" %>
+              <%= link_to "Request", new_ganja_purchase_request_path(ganja), class: "btn btn-success btn-modal" %>
             </div>
           </div>
         </div>
